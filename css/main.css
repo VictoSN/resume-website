@@ -4,7 +4,9 @@
     margin-top: 100px;
     margin-bottom: 120px;
     overflow: auto;
+    padding-bottom: 100px;
 }
+
 
 #introductionPhoto{
     width: 350px;
@@ -12,8 +14,13 @@
     object-fit: cover;
     border-radius: 50%;
     float: left;
-    filter: grayscale(75%);
+    filter: grayscale(80%);
     margin-left: 50px;
+    transition: filter 1s ease, color 0.5s ease;
+}
+
+#introductionPhoto:hover{
+    filter: grayscale(0%);
 }
 
 #introduction_detail{
@@ -51,7 +58,6 @@
     text-decoration: none;
     transition: background-color 1s ease, color 2s ease;
 }
-
 
 #introduction_shortcut a:hover {
     color: #dfdfdf;

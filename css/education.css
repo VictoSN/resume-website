@@ -1,11 +1,16 @@
 .content {
     max-width: 1200px;
-    margin: 3rem auto;
+    margin: auto;
     margin-bottom: 100px;
-    padding: 0 2rem;
+    padding: 0 3rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2.5rem;
+}
+
+#education_section{
+    padding-top: 150px;
+    padding-bottom: 250px;
 }
 
 .contentNode {
