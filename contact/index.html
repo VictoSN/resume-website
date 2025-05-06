@@ -5,32 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="copyright" content="Victorio Suwita Nanda">
     <title>Resume-Site</title>
-    <link rel="icon" href="images/Logo Circle.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logos/Logo_Circle.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/contact.css">
     <link href="https://fonts.googleapis.com/css2?family=Matter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="contact_page">
         <div id="header">
-            <a id="main" href="../index.html" title="name">Victorio Suwita Nanda</a>
-            <a id="project" href="../project/" title="Projects">Projects</a>
-            <a id="education" href="../education/" title="Education">Education</a>
-            <a id="contact" href="../contact/" title="Contact">Contact</a>
+            <a id="main" href="../index.html">Victorio Suwita Nanda</a>
+            <div id="header_right">
+                <a id="project" href="../project/">Project</a>
+                <a id="education" href="../education/">Education</a>
+                <a id="contact" href="../contact/">Contact</a>
+            </div>
         </div>
-    
-        <div id="contact_section">
-            <p id="github">GitHub</p>
-            <p id="linkedin">LinkedIn</p>
-            <p id="address">APU On Campus, Technology Park Malaysia, Kuala Lumpur 57000</p>
+   
+        <div class="content" id="contact_section">
+            <div class="contactNode">
+                <img class="contactLogo" src="../images/logos/github.png" alt="GitHub Logo">
+                <div class="contactContent">
+                    <span id="github">GitHub</span>
+                    <p>Checkout my projects and contributions on GitHub</p>
+                    <a class="contactLink" href="https://github.com/VictoSN">github.com/VictoSN</a>
+                </div>
+                <div class="contactImage">
+                    <a href="../images/screenshots/github_profile.png" target="_blank">
+                        <img class="contactScreenshot" alt="Github Screenshot" src="../images/screenshots/github_profile.png">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contactNode">
+                <img class="contactLogo" id="linkedinImage" src="../images/logos/linkedin.png" alt="LinkedIn Logo">
+                <div class="contactContent">
+                    <span id="linkedin">LinkedIn</span>
+                    <p>Checkout my activity and certificates on LinkedIn</p>
+                    <a class="contactLink" href="https://www.linkedin.com/in/victorio-nanda/">linkedin.com/in/victorio-nanda/</a>
+                </div>
+                <div class="contactImage">
+                    <a href="../images/screenshots/linkedin_profile.png" target="_blank">
+                        <img class="contactScreenshot" alt="LinkedIn Screenshot" src="../images/screenshots/linkedin_profile.png">
+                    </a>
+                </div>
+            </div>
+            
+            <div class="contactNode">
+                <img class="contactLogo" src="../images/logos/location.png" alt="Location Logo">
+                <div class="contactContent">
+                    <span id="address">Location</span>
+                    <p>APU On Campus, Technology Park Malaysia, Kuala Lumpur 57000</p>
+                </div>
+                <div class="contactImage">
+                    <iframe id="addressMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.1466274461595!2d101.69644152695311!3d3.055405699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4abb795025d9%3A0x1c37182a714ba968!2sAsia%20Pacific%20University%20of%20Technology%20%26%20Innovation%20(APU)!5e0!3m2!1sen!2smy!4v1746558516764!5m2!1sen!2smy" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+                </div>
+            </div>
         </div>
-    
+   
         <div id="footer">
-            <p id="email">victorio.nanda.cs@gmail.com</p>
-            <p id="phone_number">+60 17 553 6908</p>
+            <div class="contact-item">
+                <span class="label">Email:</span>
+                <a href="mailto:victorio.nanda.cs@gmail.com?subject=Hello&body=I%20saw%20your%20portfolio!">victorio.nanda.cs@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="label">Phone:</span>
+                <span id="phone_number">+60 17 553 6908</span>
+            </div>
             <p id="copyright">© 2025 By Victorio Suwita Nanda.</p>
         </div>
     </div>
-
-    <script src="index.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

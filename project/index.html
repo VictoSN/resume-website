@@ -5,55 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="copyright" content="Victorio Suwita Nanda">
     <title>Resume-Site</title>
-    <link rel="icon" href="images/Logo Circle.png">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logos/Logo_Circle.png">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Matter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="project_page">
         <div id="header">
-            <a id="main" href="../index.html" title="name">Victorio Suwita Nanda</a>
-            <a id="project" href="../project/" title="Projects">Projects</a>
-            <a id="education" href="../education/" title="Education">Education</a>
-            <a id="contact" href="../contact/" title="Contact">Contact</a>
+            <a id="main" href="../index.html">Victorio Suwita Nanda</a>
+            <div id="header_right">
+                <a id="project" href="../project/">Project</a>
+                <a id="education" href="../education/">Education</a>
+                <a id="contact" href="../contact/">Contact</a>
+            </div>
         </div>
     
-        <div id="skill_section">
-            <h2>Skill</h2>
-            <!-- Front End -->
-            <p class="skillNode">HTML</p>
-            <p class="skillNode">CSS</p>
-            <p class="skillNode">JavaScript</p>
-    
-            <!-- Back End -->
-            <p class="skillNode">C</p>
-            <p class="skillNode">C++</p>
-            <p class="skillNode">Python</p>
-            <p class="skillNode">R</p>
-            <p class="skillNode">Java</p>
-            <p class="skillNode">X86-64 Assembly</p>
-    
-            <!-- Database -->
-            <p class="skillNode">SQL</p>
-        </div>
-    
-        <div id="project_section">
-            <h2>Projects</h2>
-            <p class="ProjectNode">Counter</p>
-            <p class="ProjectNode">Calculator</p>
-            <p class="ProjectNode">Temperature Converter</p>
-            <p class="ProjectNode">Automatic Car Wash System</p>
-            <p class="ProjectNode">Linux Mail System</p>
-            <p class="ProjectNode">Inventory System</p>
+        <div class="content">
+            <div id="skill_section">
+                <h2>Skill</h2>
+                <!-- Front End -->
+                <p class="skillNode">HTML</p>
+                <p class="skillNode">CSS</p>
+                <p class="skillNode">JavaScript</p>
+        
+                <!-- Back End -->
+                <p class="skillNode">C</p>
+                <p class="skillNode">C++</p>
+                <p class="skillNode">Python</p>
+                <p class="skillNode">R</p>
+                <p class="skillNode">Java</p>
+                <p class="skillNode">X86-64 Assembly</p>
+        
+                <!-- Database -->
+                <p class="skillNode">SQL</p>
+            </div>
+        
+            <div id="project_section">
+                <h2>Projects</h2>
+                <p class="ProjectNode">Counter</p>
+                <p class="ProjectNode">Calculator</p>
+                <p class="ProjectNode">Temperature Converter</p>
+                <p class="ProjectNode">Automatic Car Wash System</p>
+                <p class="ProjectNode">Linux Mail System</p>
+                <p class="ProjectNode">Inventory System</p>
+            </div>
         </div>
     
         <div id="footer">
-            <p id="email">victorio.nanda.cs@gmail.com</p>
-            <p id="phone_number">+60 17 553 6908</p>
+            <div class="contact-item">
+                <span class="label">Email:</span>
+                <a href="mailto:victorio.nanda.cs@gmail.com?subject=Hello&body=I%20saw%20your%20portfolio!">victorio.nanda.cs@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="label">Phone:</span>
+                <span id="phone_number">+60 17 553 6908</span>
+            </div>
             <p id="copyright">© 2025 By Victorio Suwita Nanda.</p>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>

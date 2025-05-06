@@ -1,12 +1,96 @@
-body{
-    display: flex;
-    justify-content: center;
-    width: 100vh;
-    font-family: Matter,Helvetica,Arial,sans-serif;
+html, body {
+    height: 100%;
 }
-#photoHeader{
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
+
+body{
+    margin: 0px;
+    font-family: Matter,Helvetica,Arial,sans-serif;
+    background-image: url('../images/beige-paper.png');
+    background-repeat: repeat;
+    background-size: auto;
+    background-color: #ffffff;
+}
+
+/* Headers styles */
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+}
+
+#header a{
+    color: rgb(40, 40, 40);
+    text-decoration: none;
+}
+
+#main{
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.3s ease, color 0.3s ease;
+}
+
+#main:hover{
+    color: rgb(70, 70, 70);
+    border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+#header_right{
+    display: flex;
+    justify-content: right;
+}
+
+#header_right a{
+    padding-left: 20px;
+    padding-right: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#header_right a:hover{
+    border-radius: 5px;
+}
+
+#contact {
+    border-left: 1px solid black;
+}
+
+#project {
+    border-right: 1px solid black;
+}
+
+.content {
+    flex: 1; 
+}
+
+/* footers */
+#footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 40px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+    margin-top: auto;
+}
+
+#footer a{
+    color: rgb(40, 40, 40);
+    text-decoration: none;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }

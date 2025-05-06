@@ -5,36 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="copyright" content="Victorio Suwita Nanda">
     <title>Resume-Site</title>
-    <link rel="icon" href="images/Logo Circle.png">
+    <link rel="icon" href="images/logos/Logo_Circle.png">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Matter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Qwigley&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="main_page">
         <div id="header">
-            <a id="main" href="../index.html" title="name">Victorio Suwita Nanda</a>
-            <a id="project" href="../project/" title="Projects">Projects</a>
-            <a id="education" href="../education/" title="Education">Education</a>
-            <a id="contact" href="../contact/" title="Contact">Contact</a>
+            <a id="main" href="../index.html">Victorio Suwita Nanda</a>
+            <div id="header_right">
+                <a id="project" href="../project/">Project</a>
+                <a id="education" href="../education/">Education</a>
+                <a id="contact" href="../contact/">Contact</a>
+            </div>
         </div>
 
-        <div id="introduction_section">
-            <img id="photoHeader" alt="Profile Picture" src="images/Profile Picture.jpg"></img>
-            <h1 id="nameHeader" title="name">Victorio Suwita Nanda</h1>
-            <h2 id="positionHeader" title="position">Computer Science Student</h2>
-            <p id="about">Hi! I'm a second-year Computer Science student at Asia Pacific University, originally from Indonesia. I'm passionate about programming, networking, and understanding how systems work from the ground up.<br>
-                I enjoy working with Linux, exploring low-level computing, and solving challenging problems. Whether it's writing efficient code or digging into system architecture, I'm always looking to learn and improve.<br>
-                I'm excited to grow, collaborate, and contribute to innovative tech projects that make an impact.</p>
+        <div class="content" id="introduction_section">
+            <img id="introductionPhoto" alt="Profile Picture" src="images/profile/Profile_Picture_2.jpg">
+            <div id="introduction_detail">
+                <span id="introductionName">Victorio NANDA</span><br>
+                <span id="introductionPosition">Computer Science Student</span><br>
+                <p id="introductionAbout">
+                    I'm a second-year Computer Science student at Asia Pacific University, originally from Indonesia. I'm passionate about programming, networking, and understanding how systems work from the ground up.
+                    <br><br>I enjoy working with Web Development, exploring new skills, and solving challenging problems. Whether it's writing efficient code or digging into a new language, I'm always looking to learn and improve.
+                </p>     
+                <div id="introduction_shortcut">
+                    <a id="introductionProduct" href="../project/">P</a>
+                    <a id="introductionEducation" href="../education/">E</a>
+                    <a id="introductionContact" href="../contact/">C</a>
+                </div>           
+            </div>        
         </div>
 
         <div id="footer">
-            <p id="email">victorio.nanda.cs@gmail.com</p>
-            <p id="phone_number">+60 17 553 6908</p>
+            <div class="contact-item">
+                <span class="label">Email:</span>
+                <a href="mailto:victorio.nanda.cs@gmail.com?subject=Hello&body=I%20saw%20your%20portfolio!">victorio.nanda.cs@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="label">Phone:</span>
+                <span id="phone_number">+60 17 553 6908</span>
+            </div>
             <p id="copyright">© 2025 By Victorio Suwita Nanda.</p>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
 

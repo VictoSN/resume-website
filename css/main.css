@@ -1,0 +1,59 @@
+/* main page */
+#introduction_section{
+    font-family: 'Garamond Classico SC';
+    margin-top: 100px;
+    margin-bottom: 120px;
+    overflow: auto;
+}
+
+#introductionPhoto{
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+    filter: grayscale(75%);
+    margin-left: 50px;
+}
+
+#introduction_detail{
+    overflow: hidden;
+    padding-left: 50px;
+}
+
+#introductionName{
+    font-size: 3em;
+}
+
+#introductionPosition{
+    font-size: 2em;
+}
+
+#introductionAbout{
+    font-size: 1em;
+    text-align: justify;
+    padding-right: 50px;
+}
+
+#introduction_shortcut a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Qwigley';
+    font-size: 3em;
+    color: #333333;
+    background-color: #dfdfdf;
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    border-radius: 50%;
+    line-height: 1;
+    text-decoration: none;
+    transition: background-color 1s ease, color 2s ease;
+}
+
+
+#introduction_shortcut a:hover {
+    color: #dfdfdf;
+    background-color: #333333;
+}
