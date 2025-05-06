@@ -2,6 +2,7 @@ body{
     display: flex;
     justify-content: center;
     width: 100vh;
+    font-family: Matter,Helvetica,Arial,sans-serif;
 }
 #photoHeader{
     width: 200px;
