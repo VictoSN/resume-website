@@ -1,0 +1,9 @@
+[submodule "subproject/counter-app"]
+	path = subproject/counter-app
+	url = https://github.com/victosn/counter-app.git
+[submodule "subproject/temperature-app"]
+	path = subproject/temperature-app
+	url = https://github.com/victosn/temperature-app.git
+[submodule "subproject/calculator-app"]
+	path = subproject/calculator-app
+	url = https://github.com/victosn/temperature-app.git

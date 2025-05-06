@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="copyright" content="Victorio Suwita Nanda">
     <title>Resume-Site</title>
-    <link rel="icon" href="images/logos/Logo_Circle.png">
+    <link rel="icon" href="../images/logos/Logo_Circle.png">
     <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Matter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/project.css">
 </head>
 <body>
     <div id="project_page">
@@ -21,33 +21,59 @@
         </div>
     
         <div class="content">
-            <div id="skill_section">
-                <h2>Skill</h2>
-                <!-- Front End -->
-                <p class="skillNode">HTML</p>
-                <p class="skillNode">CSS</p>
-                <p class="skillNode">JavaScript</p>
-        
-                <!-- Back End -->
-                <p class="skillNode">C</p>
-                <p class="skillNode">C++</p>
-                <p class="skillNode">Python</p>
-                <p class="skillNode">R</p>
-                <p class="skillNode">Java</p>
-                <p class="skillNode">X86-64 Assembly</p>
-        
-                <!-- Database -->
-                <p class="skillNode">SQL</p>
+            <div class="skill_section">
+                <h1>Skills</h1><br>
+                
+                <div class="skillNode">
+                    <h2>Front End</h2>
+                    <p>HTML</p>
+                    <p>CSS</p>
+                    <p>JavaScript</p>
+                </div>
+
+                <div class="skillNode">
+                    <h2>Back End</h2>
+                    <p>C</p>
+                    <p>C++</p>
+                    <p>Python</p>
+                    <p>R</p>
+                    <p>Java</p>
+                    <p>X86-64 Assembly</p>
+                </div>
+
+                <div class="skillNode">
+                    <h2>Database</h2>
+                    <p>SQL</p>
+                </div>
             </div>
         
             <div id="project_section">
-                <h2>Projects</h2>
-                <p class="ProjectNode">Counter</p>
-                <p class="ProjectNode">Calculator</p>
-                <p class="ProjectNode">Temperature Converter</p>
-                <p class="ProjectNode">Automatic Car Wash System</p>
+                <h1>Projects</h1><br>
+
+                <div class="project-iframe-container">
+                    <p class="ProjectNode">Counter</p>
+                    <iframe src="../subproject/counter-app/index.html" class="project-iframe">
+                        <p>Your browser does not support iframes. <a href="https://victosn.github.io/counter-app/">View counter project separately</a></p>
+                    </iframe>
+                </div>
+                
+                <div class="project-iframe-container">
+                    <p class="ProjectNode">Calculator</p>
+                    <iframe src="../subproject/calculator-app/index.html" class="project-iframe">
+                        <p>Your browser does not support iframes. <a href="https://victosn.github.io/calculator-app/">View calculator project separately</a></p>
+                    </iframe>
+                </div>
+                
+                <div class="project-iframe-container">
+                    <p class="ProjectNode">Temperature Converter</p>
+                    <iframe src="../subproject/temperature-app/index.html" class="project-iframe">
+                        <p>Your browser does not support iframes. <a href="https://victosn.github.io/temperature-app/">View temperature converter separately</a></p>
+                    </iframe>
+                </div>
+
+                <!-- <p class="ProjectNode">Automatic Car Wash System</p>
                 <p class="ProjectNode">Linux Mail System</p>
-                <p class="ProjectNode">Inventory System</p>
+                <p class="ProjectNode">Inventory System</p> -->
             </div>
         </div>
     
@@ -58,7 +84,7 @@
             </div>
             <div class="contact-item">
                 <span class="label">Phone:</span>
-                <span id="phone_number">+60 17 553 6908</span>
+                <a href="tel:+60175536908">+60 17 553 6908</a>
             </div>
             <p id="copyright">© 2025 By Victorio Suwita Nanda.</p>
         </div>
