@@ -139,6 +139,10 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
+#temperature {
+    min-height: 700px;
+}
+
 @media (max-width: 768px) {
     .project-iframe {
         height: 400px;
@@ -156,7 +160,7 @@
 
 @media (max-width: 480px) {
     .project-iframe {
-        height: 300px;
+        height: 500px;
     }
     
     .skill_section {
