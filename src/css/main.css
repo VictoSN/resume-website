@@ -1,12 +1,11 @@
 /* main page */
 #introduction_section{
     font-family: 'Garamond Classico SC';
-    margin-top: 100px;
-    margin-bottom: 120px;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
     overflow: auto;
-    padding-bottom: 100px;
+    padding-bottom: 20vh;
 }
-
 
 #introductionPhoto{
     width: 350px;
@@ -29,17 +28,17 @@
 }
 
 #introductionName{
-    font-size: 3em;
+    font-size: 3rem;
 }
 
 #introductionPosition{
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 #introductionAbout{
-    font-size: 1em;
+    font-size: 1.5rem;
     text-align: justify;
-    padding-right: 50px;
+    padding-right: 10vw;
 }
 
 #introduction_shortcut a{
@@ -47,11 +46,11 @@
     align-items: center;
     justify-content: center;
     font-family: 'Qwigley';
-    font-size: 3em;
+    font-size: 5em;
     color: #333333;
     background-color: #dfdfdf;
-    width: 150px;
-    height: 150px;
+    width: 30vh;
+    height: 30vh;
     margin-right: 20px;
     border-radius: 50%;
     line-height: 1;
