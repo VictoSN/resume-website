@@ -68,6 +68,7 @@ body {
 
 .contentright ul li a {
     padding-left: 0.2rem;
+    display: inline;
 }
 
 .contentright ul li a:hover {
