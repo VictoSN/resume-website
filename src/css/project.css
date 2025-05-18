@@ -110,7 +110,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.ProjectNode {
+.ProjectTitle {
     color: #333;
     font-size: 1.5rem;
     margin: 0 0 1.5rem 0;
@@ -119,7 +119,7 @@
     font-weight: 600;
 }
 
-.ProjectNode::after {
+.ProjectTitle::after {
     content: '';
     position: absolute;
     left: 0;
@@ -144,27 +144,31 @@
 }
 
 @media (max-width: 768px) {
-    .project-iframe {
-        height: 400px;
-    }
-    
     .project-iframe-container {
         padding: 1rem;
         margin-bottom: 2rem;
     }
-    
-    .ProjectNode {
+
+    .ProjectTitle {
         font-size: 1.3rem;
+    }
+
+    .project-iframe {
+        height: 400px;
     }
 }
 
 @media (max-width: 480px) {
-    .project-iframe {
-        height: 500px;
+    #project_section {
+        padding: 0 1.5rem;
     }
-    
+
     .skill_section {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .project-iframe {
+        height: 500px;
     }
 }
