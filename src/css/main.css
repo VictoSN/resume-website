@@ -2,9 +2,8 @@
 #introduction_section{
     font-family: 'Garamond Classico SC';
     margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-bottom: 30vh;
     overflow: auto;
-    padding-bottom: 20vh;
 }
 
 #introductionPhoto{
@@ -61,4 +60,39 @@
 #introduction_shortcut a:hover {
     color: #dfdfdf;
     background-color: #333333;
+}
+
+@media (max-width: 480px) {
+    #introduction_section {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-bottom: 8vh;
+    }
+
+    #introductionName{
+        font-size: 2rem;
+    }
+
+    #introductionPosition{
+        font-size: 1.5rem;
+    }
+
+    #introductionAbout{
+        font-size: 1rem;
+    }
+
+    #introduction_shortcut a{
+        height: 10vh;
+        width: 10vh;
+        font-size: 3rem;
+        justify-content: center;
+    }
+
+    #introductionPhoto{
+        width: 300px;
+        height: 300px;
+        align-self: center;
+        margin-top: 5vh;
+        margin-left: 0vw;
+    }
 }
