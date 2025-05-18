@@ -1,9 +1,15 @@
 /* main page */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 #introduction_section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     font-family: 'Garamond Classico SC';
-    margin-top: 10vh;
-    margin-bottom: 30vh;
-    overflow: auto;
+    margin: 10vh 30vh 30vh 30vh;
 }
 
 #introductionPhoto{
@@ -11,9 +17,8 @@
     height: 350px;
     object-fit: cover;
     border-radius: 50%;
-    float: left;
+    aspect-ratio: 1 / 1; 
     filter: grayscale(80%);
-    margin-left: 10vw;
     transition: filter 1s ease, color 0.5s ease;
 }
 
@@ -23,7 +28,10 @@
 
 #introduction_detail{
     overflow: hidden;
-    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5vh;
+    box-sizing: border-box;
 }
 
 #introductionName{
@@ -31,13 +39,20 @@
 }
 
 #introductionPosition{
+    margin-top: 3vh;
     font-size: 2rem;
+    margin-bottom: 0;
 }
 
 #introductionAbout{
+    margin-top: 1vh;
     font-size: 1.5rem;
     text-align: justify;
-    padding-right: 10vw;
+}
+
+#introduction_shortcut {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 #introduction_shortcut a{
@@ -46,11 +61,10 @@
     justify-content: center;
     font-family: 'Qwigley';
     font-size: 5em;
+    width: 180px;
+    height: 180px;
     color: #333333;
     background-color: #dfdfdf;
-    width: 30vh;
-    height: 30vh;
-    margin-right: 20px;
     border-radius: 50%;
     line-height: 1;
     text-decoration: none;
@@ -62,11 +76,33 @@
     background-color: #333333;
 }
 
+@media (max-width: 1200px) {
+    #introduction_section {
+        margin: 8vh 5vh 8vh 5vh;
+    }
+
+    #introductionPhoto{
+        width: 300px;
+        height: 300px;
+    }
+
+    #introduction_shortcut a{
+        height: 30%;
+        width: 30%;
+        font-size: 3rem;
+        aspect-ratio: 1 / 1; 
+    }
+}
+
 @media (max-width: 480px) {
     #introduction_section {
         display: flex;
         flex-direction: column-reverse;
-        margin-bottom: 8vh;
+        margin: 8vh 5vh 8vh 5vh;
+    }
+
+    #introduction_detail {
+        padding: 0;
     }
 
     #introductionName{
@@ -74,6 +110,7 @@
     }
 
     #introductionPosition{
+        margin-top: 1vh;
         font-size: 1.5rem;
     }
 
@@ -85,14 +122,13 @@
         height: 10vh;
         width: 10vh;
         font-size: 3rem;
-        justify-content: center;
     }
 
     #introductionPhoto{
         width: 300px;
         height: 300px;
         align-self: center;
-        margin-top: 5vh;
-        margin-left: 0vw;
+        margin-top: 3vh;
+        margin-left: 0; 
     }
 }

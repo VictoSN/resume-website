@@ -1,3 +1,7 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 html, body {
     height: 100%;
     margin: 0;
@@ -76,7 +80,7 @@ footer{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 40px;
+    padding: 5vh;
     background-color: #f8f8f8;
     border-top: 1px solid #ddd;
 }
@@ -111,7 +115,7 @@ footer a{
     }
 
     body {
-        padding-top: 5vh;
+        padding-top: 8vh;
     }
 
     #main{
@@ -140,5 +144,10 @@ footer a{
 
     .label {
         align-self: flex-start;
+    }
+
+    #copyright {
+        margin-top: 0;
+        margin-bottom: 0;
     }
 }

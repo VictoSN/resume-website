@@ -1,3 +1,7 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .contactLogo{
     width: 100px;
     height: 100px;
@@ -5,9 +9,10 @@
     flex-shrink: 0;
     object-fit: cover;
 }
+
 .contactNode{
     background-color: white;
-    margin: 10vh;
+    margin: 5vh 10vh;
     padding: 5vh;
     border-radius: 50px;
     display: flex;
@@ -18,20 +23,24 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .contactNode:hover{
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
 }
+
 .contactNode span{
     font-weight: bold;
     font-size: 2rem;
 }
+
 .contactLink {
     text-decoration: none;
     margin-top: 10px;
     display: inline;
     position: relative;
 }
+
 .contactLink:hover{
     text-decoration: underline;
     overflow: hidden;
@@ -78,5 +87,9 @@
 
     .contactScreenshot {
         width: 100%;
+    }
+
+    #addressMap {
+        width: 60vw;
     }
 }
