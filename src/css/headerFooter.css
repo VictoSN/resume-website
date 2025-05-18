@@ -12,7 +12,7 @@ body{
 }
 
 /* Headers styles */
-#header {
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,7 +22,7 @@ body{
     border-top: 1px solid #ddd;
 }
 
-#header a{
+header a{
     color: rgb(40, 40, 40);
     text-decoration: none;
 }
@@ -69,7 +69,7 @@ body{
 }
 
 /* footers */
-#footer{
+footer{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -79,7 +79,7 @@ body{
     margin-top: auto;
 }
 
-#footer a{
+footer a{
     color: rgb(40, 40, 40);
     text-decoration: none;
 }
@@ -96,5 +96,41 @@ body{
 }
 
 @media (max-width: 480px) {
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
 
+    body {
+        padding-top: 5vh;
+    }
+
+    #main{
+        font-size: 1.3rem;
+    }
+
+    #header_right {
+        flex-direction: column;
+    }
+
+    #contact {
+        border-left: none;
+    }
+
+    #project {
+        border-right: none;
+    }
+
+    footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3vh;
+    }
+
+    .label {
+        align-self: flex-start;
+    }
 }

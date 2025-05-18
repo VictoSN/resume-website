@@ -140,7 +140,7 @@
 }
 
 #temperature {
-    min-height: 700px;
+    min-height: 720px;
 }
 
 @media (max-width: 768px) {
