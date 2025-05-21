@@ -67,6 +67,10 @@ header a{
     border-left: 1px solid black;
 }
 
+#blog {
+    border-right: 1px solid black;
+}
+
 #project {
     border-right: 1px solid black;
 }
@@ -126,14 +130,6 @@ footer a{
         padding-top: 10px;
         border-top: 2px solid black;
         flex-direction: row;
-    }
-
-    #contact {
-        border-left: none;
-    }
-
-    #project {
-        border-right: none;
     }
 
     footer {

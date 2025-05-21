@@ -1,36 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
     const projectContainers = document.querySelectorAll('.project-iframe-container');
-    
+   
     projectContainers.forEach(container => {
         const content = container.querySelector('.Project-content');
-        
+       
         container.addEventListener('click', function(e) {
-            // prevent click colision
+            // prevent click collision
             if (e.target.closest('.Project-content') && e.target !== content) {
                 return;
             }
-            
+           
             // closes all the containers first
             projectContainers.forEach(otherContainer => {
                 if (otherContainer !== container) {
                     const otherContent = otherContainer.querySelector('.Project-content');
-                    otherContent.style.display = 'none';
+                    otherContent.classList.remove('visible');
                     otherContainer.classList.remove('active');
                 }
             });
-
+            
             // close/open the container
-            if (content.style.display === 'block') {
-                content.style.display = 'none';
+            if (content.classList.contains('visible')) {
+                content.classList.remove('visible');
                 container.classList.remove('active');
             } else {
-                content.style.display = 'block';
+                content.classList.add('visible');
                 container.classList.add('active');
-
             }
         });
-        
-        // init all the content to be hidden, just in case
-        content.style.display = 'none';
+       
+        // Initialize all content to be hidden
+        content.classList.remove('visible');
     });
 });

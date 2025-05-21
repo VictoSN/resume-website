@@ -127,6 +127,7 @@ body {
 
 .project-iframe-container::after {
     content: "▼";
+    color: var(--light-blue);
     position: absolute;
     right: 50px;
     top: 40px;
@@ -173,9 +174,19 @@ body {
 }
 
 .Project-content {
-    display: none;
-    transition: all 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     overflow: hidden;
+    pointer-events: none;
+}
+
+.Project-content.visible {
+    max-height: 2000px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .Project-content a, 

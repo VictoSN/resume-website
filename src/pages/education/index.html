@@ -15,6 +15,7 @@
             <a id="main" href="/index.html">Victorio Suwita Nanda</a>
             <div id="header_right">
                 <a id="project" href="/src/pages/project/">Project</a>
+                <a id="blog" href="/src/pages/blog/">Blog</a>
                 <a id="education" href="/src/pages/education/">Education</a>
                 <a id="contact" href="/src/pages/contact/">Contact</a>
             </div>
@@ -24,34 +25,53 @@
             <div class="contentNode">
                 <h2 class="grid_content">Education</h2>
                 <div class="contentright">
-                    <div>
-                        <h3 id="APU">Asia Pacific University (2023 - 2026)</h3>
-                        <p>Bachelor of Science (Honours) in Computer Science</p>
-                        <ul>
-                            <li><a href="/src/images/certificates/transcript.png" target="_blank" id="cgpa">CGPA: 3.73</a></li>
-                            <li><a href="/src/images/certificates/Vice_Chancellor.png" target="_blank" id="vc">Vice Chancellor's List for Academic Exellence</a></li>
-                        </ul>
+
+                    <!-- APU -->
+                    <div class="education-card">
+                        <div class="edu-header">
+                            <h3 class="edu-title" id="APU">Asia Pacific University</h3>
+                            <span class="edu-period">2023 - Present</span>
+                        </div>
+                        <div class="edu-degree">Bachelor of Science (Honours) in Computer Science</div>
+                        <div class="edu-highlights">
+                            <ul>
+                                <li><a href="/src/images/certificates/transcript.png" target="_blank" id="cgpa">CGPA: 3.73</a></li>
+                                <li><a href="/src/images/certificates/Vice_Chancellor.png" target="_blank" id="vc">Vice Chancellor's List for Academic Excellence</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div>
-                        <h3 id="DMU">De Montfort University (2023 - 2026)</h3>
-                        <p>Bachelor of Science (Honours) in Computer Science</p>
-                        <ul>
-                            <li>APU-DMU Dual Degree Programme</li>
-                        </ul>
+                    
+                    <!-- DMU -->
+                    <div class="education-card">
+                        <div class="edu-header">
+                            <h3 class="edu-title" id="DMU">De Montfort University</h3>
+                            <span class="edu-period">2023 - Present</span>
+                        </div>
+                        <div class="edu-degree">Bachelor of Science (Honours) in Computer Science</div>
+                        <div class="program-badge">
+                            APU-DMU Dual Degree Programme
+                        </div>
                     </div>
-                    <div>
-                        <h3 id="RHSA">Red Hat Academy (2024 - 2025)</h3>
-                        <a href="/src/images/certificates/RH124.jpg" target="_blank">Red Hat System Administration I (RH124)</a>
+                    
+                    <!-- RHA -->
+                    <div class="education-card">
+                        <div class="edu-header">
+                            <h3 class="edu-title" id="RHSA">Red Hat Academy</h3>
+                            <span class="edu-period">2024 - 2025</span>
+                        </div>
+                        <a href="/src/images/certificates/RH124.jpg" target="_blank" class="certificate-link">
+                            Red Hat System Administration I (RH124)
+                        </a>
                         <p class="certification-description">
                             Completed foundational training in Red Hat Enterprise Linux (RHEL) 9.3 administration, covering:
-                            <ul class="skills-list">
-                                <li>Command-line operations</li>
-                                <li>User security and system access controls</li>
-                                <li>Systemd service management</li>
-                                <li>Network configuration via SSH</li>
-                                <li>DNF package manager</li>
-                            </ul>
                         </p>
+                        <ul class="skills-list">
+                            <li>Command-line operations</li>
+                            <li>User security</li>
+                            <li>Systemd service management</li>
+                            <li>Network configuration</li>
+                            <li>DNF package manager</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -59,38 +79,115 @@
             <div class="contentNode">
                 <h2 class="grid_content">Certificates</h2>
                 <div class="contentright">
-                    <ul>
-                        <li><a href="https://www.freecodecamp.org/certification/VictoSN/responsive-web-design" target="_blank" id="wd">freeCodeCamp: Responsive Web Design</a></li>
-                        <li><a href="/src/images/certificates/Joget.png" target="_blank" id="joget">Joget Hackathon</a></li>
-                        <li><a href="https://www.credly.com/badges/d2e7d276-8e0b-4ad4-8aa8-34eea31789da/linked_in_profile" target="_blank" id="cisco">Cisco CCNA: Introduction to Networks</a></li>
-                        <li><a href="/src/images/certificates/ICTF.png" target="_blank" id="ictf">Internal CTF Workshop</a></li>
-                        <li><a href="/src/images/certificates/IACD.png" target="_blank" id="iacd">Intercultural Awareness and Cultural Diversity (MOOC)</a></li>
-                    </ul>
+                    <div class="cert-list">
+
+                        <div class="cert-item">
+                            <div class="cert-header">
+                                <div class="cert-icon">💻</div>
+                                <div>freeCodeCamp</div>
+                            </div>
+                            <div class="cert-body">
+                                <div class="cert-title">Responsive Web Design</div>
+                                <div class="cert-issuer">Issued May 2025</div>
+                                <a href="https://www.freecodecamp.org/certification/VictoSN/responsive-web-design" target="_blank" id="wd" class="cert-link">View Certificate</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Joget -->
+                        <div class="cert-item">
+                            <div class="cert-header">
+                                <div class="cert-icon">🏆</div>
+                                <div>Joget</div>
+                            </div>
+                            <div class="cert-body">
+                                <div class="cert-title">Joget Hackathon</div>
+                                <div class="cert-issuer">Issued November 2024</div>
+                                <a href="/src/images/certificates/Joget.png" target="_blank" id="joget" class="cert-link">View Certificate</a>
+                            </div>
+                        </div>
+                        
+                        <!-- CCNA -->
+                        <div class="cert-item">
+                            <div class="cert-header">
+                                <div class="cert-icon">🌐</div>
+                                <div>Cisco</div>
+                            </div>
+                            <div class="cert-body">
+                                <div class="cert-title">CCNA: Introduction to Networks</div>
+                                <div class="cert-issuer">Issued January 2024</div>
+                                <a href="https://www.credly.com/badges/d2e7d276-8e0b-4ad4-8aa8-34eea31789da/linked_in_profile" target="_blank" id="cisco" class="cert-link">View Badge</a>
+                            </div>
+                        </div>
+                        
+                        <!-- ICTF -->
+                        <div class="cert-item">
+                            <div class="cert-header">
+                                <div class="cert-icon">🔒</div>
+                                <div>APU</div>
+                            </div>
+                            <div class="cert-body">
+                                <div class="cert-title">Internal CTF Workshop</div>
+                                <div class="cert-issuer">Issued March 2025</div>
+                                <a href="/src/images/certificates/ICTF.png" target="_blank" id="ictf" class="cert-link">View Certificate</a>
+                            </div>
+                        </div>
+                        
+                        <!-- IACD -->
+                        <div class="cert-item">
+                            <div class="cert-header">
+                                <div class="cert-icon">🌍</div>
+                                <div>F R I E N D S</div>
+                            </div>
+                            <div class="cert-body">
+                                <div class="cert-title">Intercultural Awareness and Cultural Diversity</div>
+                                <div class="cert-issuer">Issued October 2023</div>
+                                <a href="/src/images/certificates/IACD.png" target="_blank" id="iacd" class="cert-link">View Certificate</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        
+
             <div class="contentNode">
                 <h2 class="grid_content">Language</h2>
                 <div class="contentright">
-                    <span id="id">🇮🇩 Indonesian (Native Fluency)</span>
-                    <span id="en">🇬🇧 English (Professional Fluency)</span>
-                    <span id="my">🇲🇾 Malay (Professional Fluency)</span>
+                    <!-- Indonesian -->
+                    <div class="language-item">
+                        <div class="language-flag">🇮🇩</div>
+                        <div class="language-details">
+                            <div class="language-name">Indonesian</div>
+                            <div class="language-level">Native Fluency</div>
+                            <div class="language-bar">
+                                <div class="language-progress native"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- English -->
+                    <div class="language-item">
+                        <div class="language-flag">🇬🇧</div>
+                        <div class="language-details">
+                            <div class="language-name">English</div>
+                            <div class="language-level">Professional Fluency</div>
+                            <div class="language-bar">
+                                <div class="language-progress professional"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Malay -->
+                    <div class="language-item">
+                        <div class="language-flag">🇲🇾</div>
+                        <div class="language-details">
+                            <div class="language-name">Malay</div>
+                            <div class="language-level">Professional Fluency</div>
+                            <div class="language-bar">
+                                <div class="language-progress professional"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    
-        <footer>
-            <div class="contact-item">
-                <span class="label">Email:</span>
-                <a href="mailto:victorio.nanda.cs@gmail.com?subject=Hello&body=I%20saw%20your%20portfolio!">victorio.nanda.cs@gmail.com</a>
-            </div>
-            <div class="contact-item">
-                <span class="label">Phone:</span>
-                <a href="tel:+60175536908">+60 17 553 6908</a>
-            </div>
-            <p id="copyright">© 2025 By Victorio Suwita Nanda.</p>
-        </footer>
-    </div>
 
     <script src="/src/js/headerFooter.js"></script>
 </body>
