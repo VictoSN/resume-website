@@ -116,11 +116,41 @@ body {
     margin-bottom: 2.5rem;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
 }
 
 .project-iframe-container:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-iframe-container::after {
+    content: "▼";
+    position: absolute;
+    right: 50px;
+    top: 40px;
+    transition: transform 0.3s ease;
+    display: block !important
+}
+
+.project-iframe-container:hover::after {
+    display: block !important;
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.project-iframe-container.active::after {
+    transform: rotate(180deg);
+}
+
+.project-iframe-container.active:hover::after {
+    transform: translateY(5px) rotate(180deg);
+}
+
+.project-iframe-container.active {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-left: 3px solid var(--light-blue);
 }
 
 .ProjectTitle {
@@ -140,6 +170,19 @@ body {
     height: 2px;
     width: 40px;
     background-color: var(--light-blue);
+}
+
+.Project-content {
+    display: none;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.Project-content a, 
+.Project-content button,
+.Project-content iframe,
+.Project-content img {
+    cursor: auto;
 }
 
 .project-iframe {
@@ -194,5 +237,10 @@ body {
 
     .project-iframe {
         height: 500px;
+    }
+
+    .project-iframe-container::after {
+        right: 20px;
+        top: 30px;
     }
 }
