@@ -1,0 +1,228 @@
+body {
+    font-family: 'Inter', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.WordSection1 {
+    padding-top: 0 !important;
+}
+
+#title_page {
+    color:black;
+    padding-top: 10vh !important;
+    border: none;
+    margin-left:.7in;
+    text-indent:-.25in;
+    text-align: center;
+}
+
+.author-date {
+    font-size: 1rem !important;
+    font-weight: normal !important;
+    text-align: left !important;
+    margin: 0 !important;
+    padding: 0 3vh !important;
+    color: black !important;
+    border: none;
+}
+
+.top {
+    margin-top: 0 !important;
+}
+
+#toc {
+    background-color: #ffffffd7;
+    border-radius: 30px;
+    padding: 1rem 3rem;
+    margin: 3rem 5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#toc_title {
+    font-size: 1.5rem;
+}
+
+div.WordSection1 {
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+p, li, div.MsoNormal {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 1em;
+    margin-left: 0.2in;
+    line-height: 1.7;
+    font-size: 1.05em;
+    font-family: "Times New Roman", serif;
+}
+
+
+
+.WordSection1 h1, h2, h3, h4, h5, h6 {
+    font-family: "Aptos Display", sans-serif;
+    color: #0F4761;
+    font-weight: 600;
+    line-height: 1.3;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+.WordSection1 h1 {
+    font-size: 2.4em;
+    border-bottom: 2px solid #0F4761;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.WordSection1 h2 {
+    font-size: 1.8em;
+    margin-left: 1.2in;
+}
+.WordSection1 h3 {
+    font-size: 1.4em;
+    margin-left: 1.6in;
+}
+.WordSection1 h4 {
+    font-size: 1.2em;
+    font-style: italic;
+}
+.WordSection1 h5 {
+    font-size: 1.1em;
+}
+.WordSection1 h6 {
+    font-size: 1.0em;
+    color: #595959;
+    font-style: italic;
+}
+
+.WordSection1 a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.WordSection1 a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.WordSection1 p span[style*='color:white;background:black'] {
+    background-color: #333;
+    color: #fff;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95em;
+    white-space: nowrap;
+}
+
+.WordSection1 img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.WordSection1 p.MsoCaption {
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.WordSection1 ol, ul {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+.WordSection1 ol li, ul li {
+    margin-bottom: 0.5em;
+}
+
+.MsoChpDefault {
+    font-size: 12.0pt;
+}
+.MsoPapDefault {
+    margin-top: 0in;
+    margin-right: 0in;
+    margin-bottom: 5.0pt;
+    margin-left: 0.2in;
+    line-height: 115%;
+}
+
+.MsoHyperlink span[style*='display:none'] {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    div.WordSection1 {
+        margin: 15px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.2em;
+    }
+
+    p, li, div.MsoNormal {
+        font-size: 1em;
+        margin-left: 0.1in;
+    }
+}
+
+@media (max-width: 480px) {
+    div.WordSection1 {
+        margin: 10px auto;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .author-date {
+        font-size: 0.8rem !important;
+        padding-left: 0 !important;
+    }
+
+    #toc {
+        padding: 1rem 3rem;
+        margin: 2rem 1rem;
+    }
+
+    h1 {
+        margin-left: 0 !important;
+        font-size: 1.8em;
+    }
+    h2 {
+        margin-left: 3rem !important;
+        font-size: 1.3em;
+    }
+    h3 {
+        margin-left: 5rem !important;
+        font-size: 1.1em;
+    }
+
+    p, li, div.MsoNormal {
+        font-size: 0.95em;
+        margin-left: 0;
+    }
+}

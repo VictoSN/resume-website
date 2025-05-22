@@ -7,7 +7,7 @@
     <title>Resume-Site</title>
     <link rel="icon" href="/src/images/logos/Logo_Circle.png">
     <link rel="stylesheet" href="/src/css/headerFooter.css">
-    <link rel="stylesheet" href="/src/css/blog.css">
+    <link rel="stylesheet" href="/src/css/linux_blog.css">
 </head>
 <body>
     <div id="contact_page">
@@ -20,9 +20,1566 @@
                 <a id="contact" href="/src/pages/contact/">Contact</a>
             </div>
         </header>
-   
+
         <div class="content">
-            <h1 style="text-align: center;">WORK IN PROGRESS</h1>
+            <div class=WordSection1>
+                <h2 id="title_page">Linux Mail Server</h2>
+                <h5 class="author-date">By: Victorio Suwita Nanda</h5>
+                <h5 class="author-date">23 November 2024</h5>
+
+<h1 class="top" style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780337"><b><span class="top"
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span  style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Introduction</span></b></a></h1>
+
+<p class=MsoNormal style='text-indent:.25in'>E-mail remains an important
+communication tool in the digital age, as they are secure and effective. As a
+Linux Network Administration, the task of setting up a fully functional e-mail
+server is crucial to deploy a seamless network environment. This paper outlines
+the steps required in order to achieve the requested task, beginning with
+establishing a static IP address and configuring DNS and DHCP.</p>
+
+<p class=MsoNormal style='text-indent:.25in'>The focus point of the paper is on
+installing and configuring Postfix as the Mail Transfer Agent (MTA) and Dovecot
+as the IMAP/POP3 server, allowing users to send and receive e-mails through
+third-party clients such as Thunderbird. The Encryption will be provided by the
+SSL/TLS to ensure secure e-mail transmission and retrieval. This essay also
+delves into some of the troubleshooting involved in setting up the e-mail
+server.</p>
+
+                <div id="toc">
+<p class=MsoTocHeading align=center style='text-align:center'><b><span
+style='font-family:"Times New Roman",serif;color:windowtext' id="toc_title">Table of Contents</span></b></p>
+
+<p class=MsoToc1><a href="#_Toc198780337"><b>1.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Introduction</b><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780338"><b>2.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Chapter 1: Requirements</b><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780339">2.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Hostname<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc198780340">2.1.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;font-style:
+normal;text-decoration:none'> </span>Rocky<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc198780341">2.1.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;font-style:
+normal;text-decoration:none'> </span>Ubuntu<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780342">2.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Local Users<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780343">2.3.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>DNS<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc198780344">2.3.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;font-style:
+normal;text-decoration:none'> </span>Rocky<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc198780345">2.3.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;font-style:
+normal;text-decoration:none'> </span>Ubuntu<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780346">2.4.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>DHCP<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc198780347">2.4.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;font-style:
+normal;text-decoration:none'> </span>Rocky<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc198780348">2.4.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;font-style:
+normal;text-decoration:none'> </span>Ubuntu<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780349"><b>3.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Chapter 2: Postfix</b><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780350">3.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Installation<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780351">3.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Configuration<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780352">3.3.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Testing<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780353"><b>4.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Chapter 3: Dovecot</b><span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780354">4.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Installation<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780355">4.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Configuration<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780356">4.3.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Testing<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780357"><b>5.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Chapter 4: SSL</b><span style='color:windowtext;
+display:none;text-decoration:none'>.. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780358">5.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Installation<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780359">5.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Configuration<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780360">5.3.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Testing<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780361"><b>6.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Chapter 5: Thunderbird</b><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780362">6.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Installation<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780363">6.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Configuration<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780364">6.3.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Testing<span style='color:windowtext;display:none;text-decoration:
+none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780365"><b>7.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Chapter 6: Troubleshooting</b><span
+style='color:windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780366">7.1.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Case 1: DNS Issues<span style='color:windowtext;display:none;
+text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780367">7.2.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Case 2: Postfix Configuration Check<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780368">7.3.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Case 3: Checking Logs<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780369">7.4.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Case 4: Checking Service Status<span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780370">7.5.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Case 5: Checking Open Ports<span style='color:windowtext;
+display:none;text-decoration:none'> </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc198780371">7.6.<span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span>Case 6: Verifying SSL/TLS with OpenSSL<span style='color:
+windowtext;display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780372"><b>8.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>Conclusion</b><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc198780373"><b>9.</b><span style='font-size:12.0pt;
+line-height:115%;font-family:"Aptos",sans-serif;color:windowtext;text-decoration:
+none'> </span><b>References</b><span style='color:windowtext;
+display:none;text-decoration:none'>. </span><span
+style='color:windowtext;display:none;text-decoration:none'>1</span></a></p>
+                </div>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780338"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Chapter 1: Requirements</span></b></a></h1>
+
+<p class=MsoNormal>This chapter outlines the requirements that is needed to
+complete the task. The requirements serve a vital role to allow a proper
+configuration for the rest of the services that will be used for the E-mail
+server. Ensuring correct configuration for the requirements is key for smooth
+installation and set-up.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780339"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Hostname</span></a></h2>
+
+<p class=MsoNormal>The hostname is used to easily identify the systems in the
+network. </p>
+
+<h3 style='margin-left:1.6in;text-indent:-.5in'><a name="_Toc198780340"><i><span
+style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.1.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><i><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Rocky</span></i></a></h3>
+
+<p class=MsoNormal>The Rocky Server's hostname is going to be critical for
+identifying it in the network.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=86 src="/src/images/linux_blog/image001.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180451"></a><a name="_Toc183180674">Figure </a>1</p>
+
+<p class=MsoNormal>Figure 1: Using the '<b><span
+style='color:white;background:black'>hostname</span>'</b> command, we can view the hostname configured on the
+Rocky Server.</p>
+
+<h3 style='margin-left:1.6in;text-indent:-.5in'><a name="_Toc198780341"><i><span
+style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.1.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><i><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Ubuntu</span></i></a></h3>
+
+<p class=MsoNormal>Similar to Rocky, the Ubuntu Client will also require a
+unique hostname for identification.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=88 src="/src/images/linux_blog/image002.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180452"></a><a name="_Toc183180675">Figure </a>2</p>
+
+<p class=MsoNormal>Figure 2: The '<b><span style='color:white;background:black'>hostname</span></b>'
+command is used to see the hostname of the Ubuntu Client.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780342"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Local Users</span></a></h2>
+
+<p class=MsoNormal>The local users are the accounts that will be used to send
+and receive the e-mails. These accounts represent individuals who are operating
+the system within the network.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=53 src="/src/images/linux_blog/image003.png"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180453"></a><a name="_Toc183180676">Figure </a>3</p>
+
+<p class=MsoNormal>Figure 3: In the Rocky server, the '<b><span
+style='color:white;background:black'>sudo cat /etc/passwd</span></b>' will
+displays the file that contains all the users and their details.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>For this task, two local users are required.</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>batman: The sender of the e-mail.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>superman: The recipient of the e-mail.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=390 src="/src/images/linux_blog/image004.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180454"></a><a name="_Toc183180677">Figure </a>4</p>
+
+<p class=MsoNormal>Figure 4: The '<b><span
+style='color:white;background:black'>batman</span></b>' and '<b><span
+style='color:white;background:black'>superman</span></b>' local
+users. </p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780343"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>DNS</span></a></h2>
+
+<p class=MsoNormal>The Domain Name System (DNS) is used to resolve hostnames to
+IP addresses and vice versa. This will allow hostname-based routing of e-mails.</p>
+
+<h3 style='margin-left:1.6in;text-indent:-.5in'><a name="_Toc198780344"><i><span
+style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.3.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><i><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Rocky</span></i></a></h3>
+
+<p class=MsoNormal>From the Rocky Server, we can verify the DNS by using the '<b><span
+style='color:white;background:black'>ping</span></b>' command to test
+communication with the target.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=287 src="/src/images/linux_blog/image005.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180455"></a><a name="_Toc183180678">Figure </a>5</p>
+
+<p class=MsoNormal>Figure 5: The command '<b><span
+style='color:white;background:black'>ping</span></b>' is used to '<b><span
+style='color:white;background:black'>vsnclient.apu.com</span></b>' from
+the Rocky server.</p>
+
+<h3 style='margin-left:1.6in;text-indent:-.5in'><a name="_Toc198780345"><i><span
+style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.3.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><i><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Ubuntu</span></i></a></h3>
+
+<p class=MsoNormal>Similarly the '<b><span style='color:white;background:black'>ping</span></b>'
+command can be used to show successful resolution of the server's hostname.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=259 src="/src/images/linux_blog/image006.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180456"></a><a name="_Toc183180679">Figure </a>6</p>
+
+<p class=MsoNormal>Figure 6: The '<b><span style='color:white;background:black'>ping</span></b>'
+command confirms successful connection to the server.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780346"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>DHCP</span></a></h2>
+
+<p class=MsoNormal>The Dynamic Host Configuration Protocol (DHCP) is used to
+automatically assign the IP address to devices on the network, reducing manual configuration
+by the network administrator.</p>
+
+<h3 style='margin-left:1.6in;text-indent:-.5in'><a name="_Toc198780347"><i><span
+style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.4.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><i><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Rocky</span></i></a></h3>
+
+<p class=MsoNormal>The Rocky Server will be the side which provides the IP
+Addresses using DHCP service.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=346 src="/src/images/linux_blog/image007.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180457"></a><a name="_Toc183180680">Figure </a>7</p>
+
+<p class=MsoNormal>Figure 7: The command '<b><span
+style='color:white;background:black'>sudo systemctl status dhcpd</span></b>' verifies that the
+DHCP service is active, confirming correct configuration.</p>
+
+<h3 style='margin-left:1.6in;text-indent:-.5in'><a name="_Toc198780348"><i><span
+style='font-size:12.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>2.4.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></i><i><span style='font-size:12.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Ubuntu</span></i></a></h3>
+
+<p class=MsoNormal>The Ubuntu Client will automatically assigned to an IP
+address using DHCP.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=389 src="/src/images/linux_blog/image008.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180458"></a><a name="_Toc183180681">Figure </a>8</p>
+
+<p class=MsoNormal>Figure 8: Using the '<b><span
+style='color:white;background:black'>nmcli</span></b>' command, we can view the output is assigned as '<b><span
+style='color:white;background:black'>192.168.200.80</span></b>'.</p>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780349"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Chapter 2: Postfix</span></b></a></h1>
+
+<p class=MsoNormal>Postfix will be used as the Mail Transfer Agent (MTA), it is
+a program that determines the routes and delivers the e-mail. This chapter will
+provide instructions for installing, configuring, and testing Postfix.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780350"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>3.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Installation</span></a></h2>
+
+<p class=MsoNormal>The first step in setting up Postfix is to install it on
+Rocky Server. Postfix can be installed from the systems repository using a
+package manager.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=392 src="/src/images/linux_blog/image009.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180459"></a><a name="_Toc183180682">Figure </a>9</p>
+
+<p class=MsoNormal>Figure 9: This command '<b><span
+style='color:white;background:black'>sudo dnf install Postfix -y</span></b>' will fetches Postfix
+from the Rocky Linux repository and installs it. The process should take
+approximately a minute. </p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780351"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>3.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Configuration</span></a></h2>
+
+<p class=MsoNormal>Once Postfix has been installed, the next step is to
+correctly configure it to work with network and other services. In order to
+configure the Postfix, we need to open the configuration file. The '<b><span
+style='color:white;background:black'>nano</span></b>'
+text editor is recommended</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=57 src="/src/images/linux_blog/image010.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180460"></a><a name="_Toc183180683">Figure </a>10</p>
+
+<p class=MsoNormal>Figure 10: The '<b><span style='color:white;background:black'>sudo
+nano /etc/postfix/main.cf</span></b>' command is used to open the main
+configuration file of Postfix.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=391 src="/src/images/linux_blog/image011.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180461"></a><a name="_Toc183180684">Figure </a>11</p>
+
+<p class=MsoNormal>Figure 11: Add your hostname and domain into the '<b><span
+style='color:white;background:black'>myhostname</span></b>'
+and '<b><span
+style='color:white;background:black'>mydomain</span></b>'. If you are unsure of your hostname, you could use the '<b><span
+style='color:white;background:black'>hostname</span></b>' command.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=389 src="/src/images/linux_blog/image012.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180462"></a><a name="_Toc183180685">Figure </a>12</p>
+
+<p class=MsoNormal>Figure 12: The '<b><span
+style='color:white;background:black'>myorigin</span></b>' should be set into the mydomain
+to set as the origin of the e-mail. '<b><span
+style='color:white;background:black'>inet_interfaces</span></b>' should be set to
+all, remove the one set to 'localhost'. In order to listen to all networks.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=392 src="/src/images/linux_blog/image013.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180463"></a><a name="_Toc183180686">Figure </a>13</p>
+
+<p class=MsoNormal>Figure 13: The '<b><span
+style='color:white;background:black'>mydestination</span></b>' needs to be configured
+to the above, to ensure that Postfix works in the local domain.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=390 src="/src/images/linux_blog/image014.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180464"></a><a name="_Toc183180687">Figure </a>14</p>
+
+<p class=MsoNormal>Figure 14: Set '<b><span
+style='color:white;background:black'>mynetworks</span></b>' to your networks range
+and loopback address.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=391 src="/src/images/linux_blog/image015.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180465"></a><a name="_Toc183180688">Figure </a>15</p>
+
+<p class=MsoNormal>Figure 15: The '<b><span
+style='color:white;background:black'>home_mailbox</span></b>' will be configured to
+use the '<b><span
+style='color:white;background:black'>Maildir</span></b>' directory. If the '<b><span
+style='color:white;background:black'>Maildir</span></b>' directory does not
+exist, use the command '<b><span style='color:white;background:black'>sudo mkdir
+~/Maildir</span></b>'.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>After configurating the main config file, continue to configure
+the master configuration file.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=57 src="/src/images/linux_blog/image016.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180466"></a><a name="_Toc183180689">Figure </a>16</p>
+
+<p class=MsoNormal>Figure 16: Use '<b><span style='color:white;background:black'>sudo
+nano /etc/postfix/master.cf</span></b>' to continue the process.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=391 src="/src/images/linux_blog/image017.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180467"></a><a name="_Toc183180690">Figure </a>17</p>
+
+<p class=MsoNormal>Figure 17: Uncomment the lines above, these lines will
+determine how our Postfix will work.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>After configuration is completed, we will enable the
+Postfix, this command will allow Postfix to start on boot. Next we will start
+the Postfix.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=64 src="/src/images/linux_blog/image018.png"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180468"></a><a name="_Toc183180691">Figure </a>18</p>
+
+<p class=MsoNormal>Figure 18: '<b><span style='color:white;background:black'>sudo
+systemctl enable postfix</span></b>' and '<b><span
+style='color:white;background:black'>sudo systemctl start postfix</span></b>' is used to start
+Postfix.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780352"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>3.3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Testing</span></a></h2>
+
+<p class=MsoNormal>After the configuration, it is essential to test the
+functionality of Postfix service. </p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=249 src="/src/images/linux_blog/image019.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180469"></a><a name="_Toc183180692">Figure </a>19</p>
+
+<p class=MsoNormal>Figure 19: Similarly to the DHCP, we will use the '<b><span
+style='color:white;background:black'>systemctl status postfix</span></b>' to
+check if Postfix is running and active.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=75 src="/src/images/linux_blog/image020.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180470"></a><a name="_Toc183180693">Figure </a>20</p>
+
+<p class=MsoNormal>Figure 20: Try to send a test e-mail within the local network
+using the terminal.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>All of the emails sent will be stored within the <b>'<span
+style='color:white;background:black'>~/Maildir/new/</span></b>' folder.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=394 src="/src/images/linux_blog/image021.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180471"></a><a name="_Toc183180694">Figure </a>21</p>
+
+<p class=MsoNormal>Figure 21: To check the e-mail, use '<b><span
+style='color:white;background:black'>ls ~/Maildir/new</span></b>'. After seeing
+the inbox choose the e-mail using '<b><span style='color:white;background:black'>cat
+~/Maildir/new/</span></b>'.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=393 src="/src/images/linux_blog/image022.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180472"></a><a name="_Toc183180695">Figure </a>22</p>
+
+<p class=MsoNormal>Figure 22: You are able to see the message, date and time as
+well as the sender and receiver.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This confirms that Postfix is working as intended.</p>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780353"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Chapter 3: Dovecot</span></b></a></h1>
+
+<p class=MsoNormal>Dovecot is used as the IMAP and POP3 server, allowing users
+to view and manage their mailboxes. This chapter will walk you through the
+installing, configuring, and testing Dovecot.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780354"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>4.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Installation</span></a></h2>
+
+<p class=MsoNormal>The steps to install Dovecot are the same as Postfix. Simply
+install Dovecot from the systems repository using the package manager.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=390 src="/src/images/linux_blog/image023.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180473"></a><a name="_Toc183180696">Figure </a>23</p>
+
+<p class=MsoNormal>Figure 23: To install Dovecot run the command '<b><span
+style='color:white;background:black'>sudo dnf install dovecot -y</span></b>'. This
+will access the Linux repository and install Dovecot.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780355"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>4.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Configuration</span></a></h2>
+
+<p class=MsoNormal>After the installation is completed, it needs to be
+configured to support the IMAP and POP3 protocols to work with Postfix.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To configure the Dovecot, open the primary configuration
+file: '<b><span
+style='color:white;background:black'>dovecot.conf</span></b>'.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=63 src="/src/images/linux_blog/image024.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180474"></a><a name="_Toc183180697">Figure </a>24</p>
+
+<p class=MsoNormal>Figure 24: run the '<b><span
+style='color:white;background:black'>sudo nano /etc/dovecot/dovecot.conf</span></b>' command to start
+configuring.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=390 src="/src/images/linux_blog/image025.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180475"></a><a name="_Toc183180698">Figure </a>25</p>
+
+<p class=MsoNormal>Figure 25: ensure the protocols that will be used are '<b><span
+style='color:white;background:black'>imap</span></b>'
+and '<b><span
+style='color:white;background:black'>pop3</span></b>', and set the location of the mail to '<b><span
+style='color:white;background:black'>Maildir</span></b>'
+directory.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>After the '<b><span
+style='color:white;background:black'>dovecot.conf</span></b>' has been configured, next
+will be the '<b><span
+style='color:white;background:black'>10-mail.conf</span></b>'.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=68 src="/src/images/linux_blog/image026.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180476"></a><a name="_Toc183180699">Figure </a>26</p>
+
+<p class=MsoNormal>Figure 26: execute the '<b><span
+style='color:white;background:black'>sudo nano /etc/dovecot/conf.d/10-mail.conf</span></b>'
+command.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=391 src="/src/images/linux_blog/image027.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180477"></a><a name="_Toc183180700">Figure </a>27</p>
+
+<p class=MsoNormal>Figure 27: Set the mail location to the '<b><span
+style='color:white;background:black'>Maildir</span></b>'
+directory.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Next is to configure the '<b><span
+style='color:white;background:black'>10-auth.conf</span></b>' file to set
+the authentication settings.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=64 src="/src/images/linux_blog/image028.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180478"></a><a name="_Toc183180701">Figure </a>28</p>
+
+<p class=MsoNormal>Figure 28: run the '<b><span
+style='color:white;background:black'>sudo nano /etc/dovecot/conf.d/10-auth.conf</span></b>' command.</p>
+
+<p class=MsoNormal style='margin-left:0in'>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'>'<img
+width=624 height=390 src="/src/images/linux_blog/image029.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180479"></a><a name="_Toc183180702">Figure </a>29</p>
+
+<p class=MsoNormal>Figure 29: Make sure that '<b><span
+style='color:white;background:black'>disable_plaintext_auth</span></b>' is
+set to 'yes' to use the SSL encryption.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Lastly, open the '<b><span
+style='color:white;background:black'>10-master.conf</span></b>' to configure the
+service settings.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=63 src="/src/images/linux_blog/image030.png"
+alt="A screen shot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180480"></a><a name="_Toc183180703">Figure </a>30</p>
+
+<p class=MsoNormal>Figure 30: Use the '<b><span
+style='color:white;background:black'>sudo nano /etc/dovecot/conf.d/10-master.conf</span></b>' command to
+configure the file.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=389 src="/src/images/linux_blog/image031.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180481"></a><a name="_Toc183180704">Figure </a>31</p>
+
+<p class=MsoNormal>Figure 31: Make sure both the '<b><span
+style='color:white;background:black'>user</span></b>' and '<b><span
+style='color:white;background:black'>group</span></b>'
+is set to '<b><span
+style='color:white;background:black'>postfix</span></b>'.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>To ensure that Dovecot will start on boot, enable it on the
+terminal. Start dovecot using the command below.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=63 src="/src/images/linux_blog/image032.png"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180482"></a><a name="_Toc183180705">Figure </a>32</p>
+
+<p class=MsoNormal>Figure 32: Use the '<b><span
+style='color:white;background:black'>systemctl enable dovecot</span></b>' and '<b><span
+style='color:white;background:black'>systemctl start dovecot</span></b>' to active Dovecot.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780356"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>4.3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Testing</span></a></h2>
+
+<p class=MsoNormal>Once Dovecot is installed and configured, verify that the
+service is active and running.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=282 src="/src/images/linux_blog/image033.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180483"></a><a name="_Toc183180706">Figure </a>33</p>
+
+<p class=MsoNormal>Figure 33: To verify Dovecot is active, run the command '<b><span
+style='color:white;background:black'>systemctl status dovecot</span></b>'.</p>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780357"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Chapter 4: SSL</span></b></a></h1>
+
+<p class=MsoNormal>SSL (Secure Sockets Layer) is used to encrypt the contents
+of the e-mail communication. Certificates and keys will be used for
+authentication. This chapter will guide you through the installing, configuring,
+and testing SSL for Postfix.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780358"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>5.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Installation</span></a></h2>
+
+<p class=MsoNormal>For this task, OpenSSL will be used to generate SSL
+certificates and keys. OpenSSL is a widely used tool for encryption and
+security protocols.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=157 src="/src/images/linux_blog/image034.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180484"></a><a name="_Toc183180707">Figure </a>34</p>
+
+<p class=MsoNormal>Figure 34: To install OpenSSL, run the command '<b><span
+style='color:white;background:black'>sudo dnf install openssl</span></b>'.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780359"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>5.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Configuration</span></a></h2>
+
+<p class=MsoNormal>The configuration for OpenSSL involves generating SSL
+certificates and keys, and configuring them to work with Postfix.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Create the a directory to store the certificate and key
+files for Postfix.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=85 src="/src/images/linux_blog/image035.png"
+alt="A screenshot of a phone&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180485"></a><a name="_Toc183180708">Figure </a>35</p>
+
+<p class=MsoNormal>Figure 35: Two directories are required one for storing the
+certificate and the other for the key, use the command '<b><span
+style='color:white;background:black'>sudo mkdir -p
+/etc/ssl/certs /etc/ssl/keys</span></b>' to create both.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=78 src="/src/images/linux_blog/image036.png"
+alt="A screenshot of a phone&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180486"></a><a name="_Toc183180709">Figure </a>36</p>
+
+<p class=MsoNormal>Figure 36: To generate the certificate and key file, run the
+command:</p>
+
+<p class=MsoNormal>'<b><span style='color:white;background:black'>sudo openssl
+req -x509 -nodes -keyout `<br>/etc/ssl/keys/postfix.key `<br>-out /etc/ssl/certs/postfix.crt
+-days 365 `<br>-newkey rsa:2048</span></b>'. </p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>This command will ask you to enter your information such as
+country, state and organization.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=267 src="/src/images/linux_blog/image037.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180487"></a><a name="_Toc183180710">Figure </a>37</p>
+
+<p class=MsoNormal>Figure 37: Enter the appropriate information for your
+network system.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>After SSL is generated, we need to go back to Postfix's main
+configuration file.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=53 src="/src/images/linux_blog/image038.png"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180488"></a><a name="_Toc183180711">Figure </a>38</p>
+
+<p class=MsoNormal>Figure 38: Like before use '<b><span
+style='color:white;background:black'>sudo nano /etc/postfix/main.cf</span></b>' to open the main
+configuration of Postfix.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=393 src="/src/images/linux_blog/image039.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180489"></a><a name="_Toc183180712">Figure </a>39</p>
+
+<p class=MsoNormal>Figure 39: Set the certificate and key to their location in
+the Rocky file.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=390 src="/src/images/linux_blog/image040.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180490"></a><a name="_Toc183180713">Figure </a>40</p>
+
+<p class=MsoNormal>Figure 40: Ensure the correct configuration to allow for SSL
+and Postfix to work seamlessly.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Restart Postfix to apply the changes made.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=67 src="/src/images/linux_blog/image041.png"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180491"></a><a name="_Toc183180714">Figure </a>41</p>
+
+<p class=MsoNormal>Figure 41: Execute '<b><span
+style='color:white;background:black'>sudo systemctl restart postfix</span></b>' to restart Postfix.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780360"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>5.3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Testing</span></a></h2>
+
+<p class=MsoNormal>To continue, test SSL is properly implemented to Postfix.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=351 src="/src/images/linux_blog/image042.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180492"></a><a name="_Toc183180715">Figure </a>42</p>
+
+<p class=MsoNormal>Figure 42: To make sure Postfix is able to run, use the '<b><span
+style='color:white;background:black'>sudo systemctl status postfix</span></b>'
+command.</p>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780361"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Chapter 5: Thunderbird</span></b></a></h1>
+
+<p class=MsoNormal>Thunderbird is a third party application that is used to
+provide a graphical interface for incoming and outgoing e-mails. This walkthrough
+will show the installation, configuration and testing of the Thunderbird app.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780362"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>6.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Installation</span></a></h2>
+
+<p class=MsoNormal>Installation of Thunderbird is straightforward on the Ubuntu
+Client using the package manager.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=391 src="/src/images/linux_blog/image043.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180493"></a><a name="_Toc183180716">Figure </a>43</p>
+
+<p class=MsoNormal>Figure 43: In the Ubuntu client use '<b><span
+style='color:white;background:black'>sudo apt install thunderbird -y</span></b>'
+to check the Linux repository and install Thunderbird. </p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780363"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>6.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Configuration</span></a></h2>
+
+<p class=MsoNormal>To ensure proper communication between the server and
+client, both systems must be configured.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>For some, the firewall may block the ports required to use
+the e-mail services. We only need the ports for 587 and 993, but other ports
+can be used to as alternative.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=231 src="/src/images/linux_blog/image044.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180494"></a><a name="_Toc183180717">Figure </a>44</p>
+
+<p class=MsoNormal>Figure 44: Use the commands '<b><span
+style='color:white;background:black'>sudo firewall-cmd `<br>'add-port=25/tcp 'permanent</span></b>' to
+add an exception on Rocky server. Repeat for '<b><span
+style='color:white;background:black'>465</span></b>', '<b><span
+style='color:white;background:black'>587</span></b>' and '<b><span
+style='color:white;background:black'>993</span></b>'
+and reload the firewall using '<b><span style='color:white;background:black'>sudo
+firewall-cmd 'reload</span></b>'.</p>
+
+<p class=MsoNormal style='page-break-after:avoid'>&nbsp;</p>
+
+<p class=MsoNormal style='page-break-after:avoid'>The same steps apply to the
+Ubuntu client.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=261 src="/src/images/linux_blog/image045.png"
+alt="A screenshot of a computer program&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180495"></a><a name="_Toc183180718">Figure </a>45</p>
+
+<p class=MsoNormal>Figure 45: For the Ubuntu client, use '<b><span
+style='color:white;background:black'>sudo ufw allow 25/tcp</span></b>'. Repeat
+for '<b><span
+style='color:white;background:black'>465</span></b>', '<b><span
+style='color:white;background:black'>587</span></b>' and '<b><span
+style='color:white;background:black'>993</span></b>' and reload the firewall using '<b><span
+style='color:white;background:black'>sudo ufw reload</span></b>'.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=386 src="/src/images/linux_blog/image046.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180496"></a><a name="_Toc183180719">Figure </a>46</p>
+
+<p class=MsoNormal>Figure 46: Open the Thunderbird app in the Ubuntu app menu.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=389 src="/src/images/linux_blog/image047.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180497"></a><a name="_Toc183180720">Figure </a>47</p>
+
+<p class=MsoNormal>Figure 47: Fill in the username, email address and password
+for the selected account.</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Your full name: Name on the local account.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Email address: The configured email address of the local account.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Password: Password on the local account.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><span
+style='position:absolute;z-index:251666432;left:0px;margin-left:190px;
+margin-top:196px;width:8px;height:7px'><img width=8 height=7
+src="/src/images/linux_blog/image048.png"></span><span style='position:absolute;
+z-index:251661312;left:0px;margin-left:191px;margin-top:197px;width:6px;
+height:6px'><img width=6 height=6 src="/src/images/linux_blog/image049.png"></span><img
+width=624 height=389 src="/src/images/linux_blog/image050.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180498"></a><a name="_Toc183180721">Figure </a>48</p>
+
+<p class=MsoNormal>Figure 48: Complete the rest of the details:</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Incoming: Use IMAP protocol, and SSL/TLS for the security.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Outgoing: Use STARTTLS.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=390 src="/src/images/linux_blog/image051.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180499"></a><a name="_Toc183180722">Figure </a>49</p>
+
+<p class=MsoNormal>Figure 49: You can change the account's name in the Thunderbird
+app for easier identification.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Repeat for the '<b><span
+style='color:white;background:black'>superman</span></b>' account.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780364"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>6.3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Testing</span></a></h2>
+
+<p class=MsoNormal>Once the Thunderbird is configured, we can finally test
+sending and receiving e-mails using the local account.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=390 src="/src/images/linux_blog/image052.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180500"></a><a name="_Toc183180723">Figure </a>50</p>
+
+<p class=MsoNormal>Figure 50: Press '<b><span
+style='color:white;background:black'>New Message</span></b>' to create a new
+e-mail.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Fill the recipient's details</p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>To: The recipient's email address.</p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Subject: The title of the e-mail.</p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:.7in;text-indent:-.25in'><span
+style='font-family:Symbol'>'<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span>Body: The content of the e-mail.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=390 src="/src/images/linux_blog/image053.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180501"></a><a name="_Toc183180724">Figure </a>51</p>
+
+<p class=MsoNormal>Figure 51: After filling the details, press '<b><span
+style='color:white;background:black'>Send</span></b>' to
+send the e-mail.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=389 src="/src/images/linux_blog/image054.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180502"></a><a name="_Toc183180725">Figure </a>52</p>
+
+<p class=MsoNormal>Figure 52: For the first time, Thunderbird may prompt you to
+allow the self-signed certificate. You may also be asked to enter the outgoing
+server's password for the account. After that you need to retry to send the
+e-mail again.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=623 height=390 src="/src/images/linux_blog/image055.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180503"></a><a name="_Toc183180726">Figure </a>53</p>
+
+<p class=MsoNormal>Figure 53: As shown in the figure, the superman account has
+received the e-mail received by batman.</p>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780365"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Chapter 6: Troubleshooting</span></b></a></h1>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780366"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>7.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Case 1: DNS Issues</span></a></h2>
+
+<p class=MsoNormal>If you are using Netplan for DNS and it is not working as
+expected, you may need to restart the network connection.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=77 src="/src/images/linux_blog/image056.png"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180504"></a><a name="_Toc183180727">Figure </a>54</p>
+
+<p class=MsoNormal>Figure 54: To restart the network connection, run '<b><span
+style='color:white;background:black'>sudo netplan apply</span></b>'</p>
+
+<p class=MsoNormal align=center style='text-align:center'>.<img width=624
+height=391 src="/src/images/linux_blog/image057.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180505"></a><a name="_Toc183180728">Figure </a>55</p>
+
+<p class=MsoNormal>Figure 55: After using the command, you should be able to verify
+the network connection. In this case the Ubuntu client manage to ping the Rocky
+server.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780367"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>7.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Case 2: Postfix Configuration Check</span></a></h2>
+
+<p class=MsoNormal>The command '<b><span style='color:white;background:black'>sudo
+postfix check</span></b>' can be used to check for proper configuration in the
+Postfix 'main.cf' file.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=98 src="/src/images/linux_blog/image058.png"
+alt="A screenshot of a phone&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180506"></a><a name="_Toc183180729">Figure </a>56</p>
+
+<p class=MsoNormal>Figure 56: After running the command, it shows that there in
+an error in line 13.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=392 src="/src/images/linux_blog/image059.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180507"></a><a name="_Toc183180730">Figure </a>57</p>
+
+<p class=MsoNormal>Figure 57: In this case, there happens to be a random word on
+line 13 that causes the error. </p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=86 src="/src/images/linux_blog/image060.png"
+alt="A screenshot of a phone&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180508"></a><a name="_Toc183180731">Figure </a>58</p>
+
+<p class=MsoNormal>Figure 58: After correcting the configuration, we can run
+the command again. If there is no output, it indicates a correct configuration.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780368"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>7.3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Case 3: Checking Logs</span></a></h2>
+
+<p class=MsoNormal>The '<b><span style='color:white;background:black'>sudo tail
+-f /var/log/maillog</span></b>' command can be used to check the Postfix's logs
+in real-time.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=290 src="/src/images/linux_blog/image061.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180509"></a><a name="_Toc183180732">Figure </a>59</p>
+
+<p class=MsoNormal>Figure 59: When running this command it shows there is an
+error on line 13, it will also display the location of the error, in this case
+it is the '<b><span
+style='color:white;background:black'>main.cf</span></b>' of Postfix.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=391 src="/src/images/linux_blog/image062.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180510"></a><a name="_Toc183180733">Figure </a>60</p>
+
+<p class=MsoNormal>Figure 60: After opening up the file, we can see the problem
+and solve them.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=324 src="/src/images/linux_blog/image063.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180511"></a><a name="_Toc183180734">Figure </a>61</p>
+
+<p class=MsoNormal>Figure 61: After fixing the problem, run the command again
+to confirm ensure Postfix is functioning as expected.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780369"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>7.4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Case 4: Checking Service Status</span></a></h2>
+
+<p class=MsoNormal>Using the '<span style='color:white;background:black'>sudo
+systemctl status</span>' is useful to gain information of the current state of
+the services, whether that is Postfix or Dovecot.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=326 src="/src/images/linux_blog/image064.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180512"></a><a name="_Toc183180735">Figure </a>62</p>
+
+<p class=MsoNormal>Figure 62: In this example, it shows that Postfix failed to
+start. The command will display the location of the error.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=391 src="/src/images/linux_blog/image065.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180513"></a><a name="_Toc183180736">Figure </a>63</p>
+
+<p class=MsoNormal>Figure 63: Review the configuration file to locate the cause
+of the error.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=353 src="/src/images/linux_blog/image066.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180514"></a><a name="_Toc183180737">Figure </a>64</p>
+
+<p class=MsoNormal>Figure 64: After correcting the configuration, we can run
+the status command again to confirm that Postfix is active.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780370"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>7.5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Case 5: Checking Open Ports</span></a></h2>
+
+<p class=MsoNormal>'<b><span style='color:white;background:black'>sudo ss
+-tulnp | grep -E '587|993</span></b>' is used to check on the ports, if it
+shows an output, it indicates that the port is accessible.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=123 src="/src/images/linux_blog/image067.png"
+alt="A screenshot of a phone&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180515"></a><a name="_Toc183180738">Figure </a>65</p>
+
+<p class=MsoNormal>Figure 65: In this scenario only the 587 is accessible.
+Since 993 is the port for IMAP, we need to check Dovecot.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=354 src="/src/images/linux_blog/image068.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180516"></a><a name="_Toc183180739">Figure </a>66</p>
+
+<p class=MsoNormal>Figure 66: It seems that dovecot is inactive.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=182 src="/src/images/linux_blog/image069.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180517"></a><a name="_Toc183180740">Figure </a>67</p>
+
+<p class=MsoNormal>Figure 67: After starting Dovecot using '<b><span
+style='color:white;background:black'>sudo systemctl start dovecot</span></b>',
+we can see both outputs for 587 and 993, confirming that both services are
+running.</p>
+
+<h2 style='margin-left:1.2in;text-indent:-.5in'><a name="_Toc198780371"><span
+style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>7.6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>Case 6: Verifying SSL/TLS with OpenSSL</span></a></h2>
+
+<p class=MsoNormal>The command '<b><span style='color:white;background:black'>openssl
+s_client -connect `<br> vsnserver.apu.com:587 -starttls smtp</span></b>' is used to
+check the SSL/TLS connection to the SMTP server.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=139 src="/src/images/linux_blog/image070.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180518"></a><a name="_Toc183180741">Figure </a>68</p>
+
+<p class=MsoNormal>Figure 68: In this case it is displaying an error.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=625 height=390 src="/src/images/linux_blog/image071.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180519"></a><a name="_Toc183180742">Figure </a>69</p>
+
+<p class=MsoNormal>Figure 69: It turns out that Postfix is inactive, which is
+why SSL/TLS connection could not be established.</p>
+
+<p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
+width=624 height=395 id="Picture 1" src="/src/images/linux_blog/image072.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></p>
+
+<p class=MsoCaption align=center style='text-align:center'><a
+name="_Toc183180520"></a><a name="_Toc183180743">Figure </a>70</p>
+
+<p class=MsoNormal>Figure 70: After starting Postfix with '<b><span
+style='color:white;background:black'>sudo systemctl start postfix</span></b>',
+and running the command again, it displays that it is connected.</p>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780372"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>Conclusion</span></b></a></h1>
+
+<p class=MsoNormal style='text-indent:.25in'>This project provides a
+comprehensive walkthrough of setting up a functional email server using Postfix
+as the Mail Transfer Agent (MTA), Dovecot as the IMAP/POP3 server, and
+Thunderbird as the email client. The configuration includes the usage of
+essential components such as DNS and DHCP services to ensure smooth
+communication and email delivery. Security measures, including the usage of OpenSSL's
+SSL/TLS encryption, were used to safeguard email transmissions and user data.</p>
+
+<p class=MsoNormal style='text-indent:.25in'>Beyond the steps of installation,
+configuration and testing, this project also includes troubleshooting to
+provide a deeper understanding of managing and resolving potential issues. This
+setup have the potential to be scaled up for an enterprise-level e-mail system.
+Overall, this project highlights the proper configuration for an e-mail system.</p>
+
+<h1 style='margin-left:.7in;text-indent:-.25in'><a name="_Toc198780373"><b><span
+style='font-size:16.0pt;line-height:115%;font-family:"Times New Roman",serif;
+color:windowtext'>9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;
+</span></span></b><b><span style='font-size:16.0pt;line-height:115%;font-family:
+"Times New Roman",serif;color:windowtext'>References</span></b></a></h1>
+
+<p class=MsoNormal style='margin-left:.7in;text-indent:-.5in'>ServerFault.
+(2010, June 6). <i>How do I change Postfix configuration after installing it?</i>
+ServerFault. <a
+href="https://serverfault.com/questions/251850/how-do-i-change-postfix-configuration-after-installing-it"
+target="_new">https://serverfault.com/questions/251850/how-do-i-change-postfix-configuration-after-installing-it</a></p>
+
+<p class=MsoNormal style='margin-left:.7in;text-indent:-.5in'>ServerFault.
+(2020, November 22). <i>Thunderbird doesn't work with Postfix Dovecot</i>.
+ServerFault. <a
+href="https://serverfault.com/questions/1055455/thunderbird-doesnt-work-with-postfix-dovecot"
+target="_new">https://serverfault.com/questions/1055455/thunderbird-doesnt-work-with-postfix-dovecot</a></p>
+
+<p class=MsoNormal style='margin-left:.7in;text-indent:-.5in'>Stack Overflow.
+(2015, March 22). <i>Thunderbird does not connect to Postfix Dovecot, Webmail
+works</i>. Stack Overflow. <a
+href="https://stackoverflow.com/questions/29733597/thunderbird-does-not-connect-to-postfix-dovecot-webmail-works"
+target="_new">https://stackoverflow.com/questions/29733597/thunderbird-does-not-connect-to-postfix-dovecot-webmail-works</a></p>
+
+<p class=MsoNormal style='margin-left:.7in;text-indent:-.5in'>Stack Overflow.
+(2016, March 11). <i>Postfix not sending mail out</i>. Stack Overflow. <a
+href="https://stackoverflow.com/questions/37710031/postfix-not-sending-mail-out"
+target="_new">https://stackoverflow.com/questions/37710031/postfix-not-sending-mail-out</a></p>
+
+<p class=MsoNormal style='margin-left:.7in;text-indent:-.5in'>Stack Overflow.
+(2019, July 8). <i>Dovecot/Postfix can't receive any emails to my server</i>.
+Stack Overflow. <a
+href="https://stackoverflow.com/questions/57376935/dovecot-postfix-cant-receive-any-emails-to-my-server"
+target="_new">https://stackoverflow.com/questions/57376935/dovecot-postfix-cant-receive-any-emails-to-my-server</a></p>
+
+<p class=MsoNormal style='margin-left:.7in;text-indent:-.5in'>Super User.
+(2011, April 11). <i>Problems with connecting Thunderbird client to Dovecot
+installed on Ubuntu</i>. Super User. <a
+href="https://superuser.com/questions/286638/problems-with-connecting-thunderbird-client-to-dovecot-installed-on-ubuntu"
+target="_new">https://superuser.com/questions/286638/problems-with-connecting-thunderbird-client-to-dovecot-installed-on-ubuntu</a></p>
+
+<p class=MsoNormal style='margin-left:.7in;text-indent:-.5in'>Unix &amp; Linux
+Stack Exchange. (2023, October 14). <i>Ubuntu Server 22.04 Postfix Dovecot
+error: Postfix smtpd fatal: no SASL authentication mechanisms available</i>.
+Unix &amp; Linux Stack Exchange. <a
+href="https://unix.stackexchange.com/questions/763565/ubuntu-server-22-04-postfix-dovecot-error-postfix-smtpd-fatal-no-sasl-authenti"
+target="_new">https://unix.stackexchange.com/questions/763565/ubuntu-server-22-04-postfix-dovecot-error-postfix-smtpd-fatal-no-sasl-authenti</a></p>
+
+<p class=MsoNormal style='margin-left:0in'>&nbsp;</p>
+
+<p class=MsoNormal style='margin-left:0in'>&nbsp;</p>
+
+</div>
         </div>
    
         <footer>

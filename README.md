@@ -10,6 +10,4 @@ This project showcase my own personal resume/portfolio website to display my edu
 
 ## Possible Future Upgrades
 
-1. Add a dropdown menu for the header in mobile.
-2. Slideshow image/video for project.
-3. Blog?
+1. Slideshow image/video for project.
