@@ -963,9 +963,11 @@ name="_Toc183180486"></a><a name="_Toc183180709">Figure </a>36</p>
 <p class=MsoNormal>Figure 36: To generate the certificate and key file, run the
 command:</p>
 
-<p class=MsoNormal>'<b><span style='color:white;background:black'>sudo openssl
-req -x509 -nodes -keyout `<br>/etc/ssl/keys/postfix.key `<br>-out /etc/ssl/certs/postfix.crt
--days 365 `<br>-newkey rsa:2048</span></b>'. </p>
+<p class="MsoNormal" style="word-break: break-all; overflow-wrap: break-word;">
+<b><span style='color:white;background:black'>
+sudo openssl req -x509 -nodes -keyout /etc/ssl/keys/postfix.key -out /etc/ssl/certs/postfix.crt -days 365 -newkey rsa:2048
+</span></b>
+</p>
 
 <p class=MsoNormal>&nbsp;</p>
 
@@ -1102,7 +1104,7 @@ alt="A screenshot of a computer&#10;&#10;Description automatically generated"></
 name="_Toc183180494"></a><a name="_Toc183180717">Figure </a>44</p>
 
 <p class=MsoNormal>Figure 44: Use the commands '<b><span
-style='color:white;background:black'>sudo firewall-cmd `<br>'add-port=25/tcp 'permanent</span></b>' to
+style='color:white;background:black'>sudo firewall-cmd 'add-port=25/tcp 'permanent</span></b>' to
 add an exception on Rocky server. Repeat for '<b><span
 style='color:white;background:black'>465</span></b>', '<b><span
 style='color:white;background:black'>587</span></b>' and '<b><span
@@ -1473,9 +1475,7 @@ color:windowtext'>7.6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nb
 </span></span><span style='font-size:14.0pt;line-height:115%;font-family:"Times New Roman",serif;
 color:windowtext'>Case 6: Verifying SSL/TLS with OpenSSL</span></a></h2>
 
-<p class=MsoNormal>The command '<b><span style='color:white;background:black'>openssl
-s_client -connect `<br> vsnserver.apu.com:587 -starttls smtp</span></b>' is used to
-check the SSL/TLS connection to the SMTP server.</p>
+<p class="MsoNormal">The command '<b><span style='color:white;background:black; word-break: break-all; overflow-wrap: break-word;'>openssl s_client -connect vsnserver.apu.com:587 -starttls smtp</span></b>' is used to check the SSL/TLS connection to the SMTP server.</p>
 
 <p class=MsoNormal align=center style='text-align:center;page-break-after:avoid'><img
 width=625 height=139 src="/src/images/linux_blog/image070.png"

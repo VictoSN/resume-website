@@ -169,6 +169,12 @@ p, li, div.MsoNormal {
     display: none !important;
 }
 
+.break-word {
+    white-space: normal;
+    word-break: normal;
+    hyphens: none;
+}
+
 @media (max-width: 768px) {
     div.WordSection1 {
         margin: 15px auto;
@@ -224,5 +230,11 @@ p, li, div.MsoNormal {
     p, li, div.MsoNormal {
         font-size: 0.95em;
         margin-left: 0;
+    }
+      
+    .break-word {
+    white-space: normal;
+    word-break: break-word !important;
+    overflow-wrap: break-word;
     }
 }
