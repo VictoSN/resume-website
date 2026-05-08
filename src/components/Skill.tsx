@@ -82,7 +82,7 @@ function Skill() {
                 {categories.map(({ label, items }) => (
                     <div key={label} className="space-y-5">
                         <p className="font-display text-lg font-semibold text-[#1a1a1a] dark:text-[#E8E4DC] leading-tight">{label}</p>
-                        <div className="flex flex-wrap gap-y-5 md:gap-2">
+                        <div className="flex flex-wrap gap-x-2 gap-y-5 md:gap-2">
                             {items.map((item) => (
                                 <div key={item.name} className="flex flex-col items-center space-y-2 ">
                                     <img src={item.icon} className="w-[25px] dark:invert brightness-0"/>

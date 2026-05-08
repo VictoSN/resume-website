@@ -11,12 +11,12 @@ function Experience() {
             <p className="section-label mb-6">Experience</p>
 
             <div>
-                <div className="flex justify-between items-start mb-3">
-                    <div>
+                <div className="flex flex-col mb-3">
+                    <div className="flex flex-col md:flex-row justify-between">
                         <p className="font-display text-xl font-semibold text-[#1a1a1a] dark:text-[#E8E4DC] leading-tight">Novas Academy</p>
-                        <p className="text-base text-[#1a1a1a]/60 dark:text-white/40 mt-0.5">Information Technology Intern</p>
+                        <span className="section-label whitespace-nowrap mt-1">Jul – Nov 2025</span>
                     </div>
-                    <span className="section-label whitespace-nowrap mt-1">Jul – Nov 2025</span>
+                    <p className="text-base text-[#1a1a1a]/60 dark:text-white/40 mt-0.5">Information Technology Intern</p>
                 </div>
 
                 <p className="text-sm text-[#1a1a1a]/40 dark:text-white/30 mb-4 font-light">

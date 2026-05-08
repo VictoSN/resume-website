@@ -32,7 +32,7 @@ function Education() {
             <div className="space-y-6">
                 {education.map((e) => (
                     <div key={e.school} className="flex flex-col gap-0">
-                        <div className="flex flex-col md:flex-row justify-between items-start">
+                        <div className="flex flex-col md:flex-row justify-between">
                             <p className="font-display text-xl font-semibold text-[#1a1a1a] dark:text-[#E8E4DC] leading-tight">
                                 {e.school}
                             </p>
