@@ -1,8 +1,8 @@
-import profilePic from "../assets/profilePicture.jpg"
-import moon from "../assets/moon.svg";
-import sun from "../assets/sun.svg";
-import copyDark from "../assets/copyDark.svg";
-import copyLight from "../assets/copyLight.svg";
+import profilePic from "../assets/pictures/profilePicture.jpg"
+import moon from "../assets/svg/moon.svg";
+import sun from "../assets/svg/sun.svg";
+import copyDark from "../assets/svg/copyDark.svg";
+import copyLight from "../assets/svg/copyLight.svg";
 import { useState } from "react";
 
 type HeroProps = {
@@ -55,13 +55,13 @@ function Hero({ darkMode, setDarkMode }: HeroProps) {
 
             {/* Name & Title */}
             <div className="absolute bottom-0 left-0 right-0 px-8 pb-8 pt-16">
-                <p className="section-label text-white [text-shadow:1px_1px_0_black] dark:text-white/100 mb-2">
+                <p className="section-label [text-shadow:1px_1px_0_black] dark:text-white/100 mb-2">
                     Portfolio
                 </p>
-                <h1 className="font-display text-3xl font-bold leading-tight text-white [text-shadow:1px_1px_0_black] dark:text-white mb-1">
+                <h1 className="font-display text-4xl font-bold leading-tight text-white [text-shadow:1px_1px_0_black] dark:text-white mb-1">
                     Victorio Suwita Nanda
                 </h1>
-                <p className="text-sm text-white [text-shadow:1px_1px_0_black] dark:text-white/50 font-light tracking-wide">
+                <p className="text-base text-white [text-shadow:1px_1px_0_black] dark:text-white/50 font-light tracking-wide">
                     CS Undergraduate · Indonesia
                 </p>
             </div>

@@ -33,11 +33,11 @@ function Education() {
                 {education.map((e) => (
                     <div key={e.school} className="flex justify-between items-start gap-4">
                         <div>
-                            <p className="font-display text-lg font-semibold text-[#1a1a1a] dark:text-[#E8E4DC] leading-tight">
+                            <p className="font-display text-xl font-semibold text-[#1a1a1a] dark:text-[#E8E4DC] leading-tight">
                                 {e.school}
                             </p>
-                            <p className="text-sm text-[#1a1a1a]/70 dark:text-white/50 mt-0.5">{e.degree}</p>
-                            <p className="text-xs text-[#1a1a1a]/40 dark:text-white/30 mt-0.5 font-light">{e.detail}</p>
+                            <p className="text-base text-[#1a1a1a]/70 dark:text-white/50 mt-0.5">{e.degree}</p>
+                            <p className="text-sm text-[#1a1a1a]/40 dark:text-white/30 mt-0.5 font-light">{e.detail}</p>
                         </div>
                         <span className="section-label whitespace-nowrap mt-1">{e.period}</span>
                     </div>

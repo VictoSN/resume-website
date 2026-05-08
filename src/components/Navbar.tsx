@@ -26,16 +26,16 @@ function Navbar() {
 
             {/* Contact line */}
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
-                <a href="mailto:victorio.nanda.cs@gmail.com" className="text-xs text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                <a href="mailto:victorio.nanda.cs@gmail.com" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
                     victorio.nanda.cs@gmail.com
                 </a>
-                <a href="https://github.com/VictoSN" target="_blank" rel="noreferrer" className="text-xs text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                <a href="https://github.com/VictoSN" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
                     GitHub
                 </a>
-                <a href="https://linkedin.com/in/victorio-nanda" target="_blank" rel="noreferrer" className="text-xs text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                <a href="https://linkedin.com/in/victorio-nanda" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
                     LinkedIn
                 </a>
-                <span className="text-xs text-[#1a1a1a]/40 dark:text-white/30">+60 17 553 6908</span>
+                <span className="text-sm text-[#1a1a1a]/40 dark:text-white/30">+60 17 553 6908</span>
             </div>
         </nav>
     )
