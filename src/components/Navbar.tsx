@@ -37,7 +37,7 @@ function Navbar({ mobile = false }: NavbarProps) {
 
     return (
         <nav className="px-8 py-5 border-t border-[rgba(255,255,255,0.06)] bg-[#0E0E0E] dark:bg-[#0E0E0E] bg-[#F5F2ED]">
-            <div className="flex gap-6">
+            <div className="flex gap-6 flex-wrap justify-around">
                 {links.map(({ id, label }) => (
                     <button
                         key={id}
