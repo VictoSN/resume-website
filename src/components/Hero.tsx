@@ -8,9 +8,10 @@ import { useState } from "react";
 type HeroProps = {
     darkMode: boolean
     setDarkMode: (darkMode: boolean) => void
+    mobile?: boolean
 }
 
-function Hero({ darkMode, setDarkMode }: HeroProps) {
+function Hero({ darkMode, setDarkMode, mobile = false }: HeroProps) {
     const [copied, setCopied] = useState(false)
 
     const copyLink = async () => {
@@ -20,9 +21,9 @@ function Hero({ darkMode, setDarkMode }: HeroProps) {
     }
 
     return (
-        <div className="flex-1 flex flex-col relative overflow-hidden">
+        <div className="flex-1 flex flex-col relative overflow-hidden h-full">
             {/* Portrait */}
-            <div className="relative flex-1 min-h-0">
+            <div className="relative flex-1 min-h-0 h-full">
                 <img
                     src={profilePic}
                     className="w-full h-full object-cover object-top"
@@ -32,7 +33,7 @@ function Hero({ darkMode, setDarkMode }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E0E] via-transparent to-transparent dark:from-[#0E0E0E] from-[#F5F2ED]" />
 
                 {/* Controls */}
-                <div className="absolute top-5 right-5 flex gap-3">
+                <div className={`${mobile ? "absolute" : "fixed"} top-5 right-5 flex gap-3`}>
                     <button 
                         onClick={copyLink} 
                         className="relative p-2 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-colors"
@@ -55,7 +56,7 @@ function Hero({ darkMode, setDarkMode }: HeroProps) {
 
             {/* Name & Title */}
             <div className="absolute bottom-0 left-0 right-0 px-8 pb-8 pt-16">
-                <p className="section-label [text-shadow:1px_1px_0_black] dark:text-white/100 mb-2">
+                <p className="section-label text-white [text-shadow:1px_1px_0_black] dark:text-white/100 mb-2">
                     Portfolio
                 </p>
                 <h1 className="font-display text-4xl font-bold leading-tight text-white [text-shadow:1px_1px_0_black] dark:text-white mb-1">

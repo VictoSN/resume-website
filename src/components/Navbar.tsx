@@ -6,9 +6,34 @@ const links = [
     { id: "projects", label: "Projects" },
 ]
 
-function Navbar() {
-    const scroll = (id: string) =>
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+type NavbarProps = {
+    mobile?: boolean
+}
+
+function Navbar({ mobile = false }: NavbarProps) {
+    const scroll = (id: string) => {
+        const suffix = mobile ? "-m": ""
+        document.getElementById(id + suffix)?.scrollIntoView({ behavior: "smooth" })
+    }
+
+    // ── Mobile: sticky bottom tab bar ──
+    if (mobile) {
+        return (
+            <nav className="overflow-x-scroll fixed bottom-0 left-0 right-0 z-50 bg-[#F5F2ED]/90 dark:bg-[#0E0E0E]/90 backdrop-blur-md border-t border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)]">
+                <div className="flex justify-around items-center h-16 px-2">
+                    {links.map(({ id, label }) => (
+                        <button
+                            key={id}
+                            onClick={() => scroll(id)}
+                            className="flex flex-col items-center px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                        >
+                            <span className="section-label text-[9px] tracking-widest">{label}</span>
+                        </button>
+                    ))}
+                </div>
+            </nav>
+        )
+    }
 
     return (
         <nav className="px-8 py-5 border-t border-[rgba(255,255,255,0.06)] bg-[#0E0E0E] dark:bg-[#0E0E0E] bg-[#F5F2ED]">

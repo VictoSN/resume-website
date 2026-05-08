@@ -1,6 +1,8 @@
 import githubFull from "../assets/svg/githubFull.svg"
-import noteApp from "../assets/pictures/noteApp.png"
+import noteAppDark from "../assets/pictures/noteAppDark.png"
+import noteAppLight from "../assets/pictures/noteAppLight.png"
 import todoApp from "../assets/pictures/todoApp.png"
+import { useEffect } from "react"
 
 const projects = [
     {
@@ -15,7 +17,7 @@ const projects = [
             "Fully responsive UI for mobile and desktop"
         ],
         link: "https://github.com/VictoSN/note-app",
-        picture: noteApp
+        picture: noteAppDark
     },
     {
         title: "Todo List Application",
@@ -32,13 +34,17 @@ const projects = [
     },
 ]
 
-function Project() {
+function Project({ darkMode }: { darkMode: boolean }) {
+    useEffect(() => {
+        projects[0].picture = !darkMode ? noteAppDark : noteAppLight
+    }, [darkMode])
+
     return (
         <div>
             <p className="section-label mb-6">Projects</p>
             <div className="space-y-6">
                 {projects.map((p, i) => (
-                    <div key={p.title} className="flex flex-col gap-2 group border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)] rounded-xl p-6 hover:border-[rgba(0,0,0,0.18)] dark:hover:border-[rgba(255,255,255,0.14)] transition-colors">
+                    <div key={p.title} className="flex flex-col gap-2 group border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)] rounded-xl p-3 md:p-6 hover:border-[rgba(0,0,0,0.18)] dark:hover:border-[rgba(255,255,255,0.14)] transition-colors">
                         <div className="flex justify-between items-start mb-3">
                             <div>
                                 <span className="section-label">{String(i + 1).padStart(2, '0')} · {p.type}</span>
