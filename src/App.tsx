@@ -22,7 +22,7 @@ function App() {
   }, [darkMode])
 
   return (
-    <div className="min-h-screen bg-[#F5F2ED] dark:bg-[#0E0E0E] text-[#1a1a1a] dark:text-[#E8E4DC] flex flex-row">
+    <div className="min-h-[100dvh] bg-[#F5F2ED] dark:bg-[#0E0E0E] text-[#1a1a1a] dark:text-[#E8E4DC] flex flex-row">
       <div className="hidden md:flex flex-row h-screen">
         <div className='w-[40%] h-screen sticky top-0 flex flex-col'>
           <Hero darkMode={darkMode} setDarkMode={setDarkMode} mobile />
