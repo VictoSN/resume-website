@@ -33,25 +33,25 @@ function Navbar({ mobile = false }: NavbarProps) {
                                 onClick={() => scroll(id)}
                                 className="flex flex-col items-center px-0 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                             >
-                                <span className="large-section-label section-label !text-[11px] tracking-widest">{label}</span>
+                                <span className="large-section-label section-label !text-[9px] tracking-widest">{label}</span>
                             </button>
                         ))}
                     </div>
                 </nav>
                 <div className="-mt-5 px-8 flex flex-wrap gap-x-4 gap-y-1">
-                    <a href="mailto:victorio.nanda.cs@gmail.com" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                    <a href="mailto:victorio.nanda.cs@gmail.com" className="text-xs text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
                         <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={email}/>
                         Email
                     </a>
-                    <a href="https://github.com/VictoSN" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                    <a href="https://github.com/VictoSN" target="_blank" rel="noreferrer" className="text-xs text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
                         <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={githubFull}/>
                         GitHub
                     </a>
-                    <a href="https://linkedin.com/in/victorio-nanda" target="_blank" rel="noreferrer" className="gap-1 text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                    <a href="https://linkedin.com/in/victorio-nanda" target="_blank" rel="noreferrer" className="text-xs text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
                         <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={linkedin}/>
                         LinkedIn
                     </a>
-                    <a href="tel:+60-17-553-6908" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                    <a href="tel:+60-17-553-6908" target="_blank" rel="noreferrer" className="text-xs text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
                         <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={phone}/>
                         Phone
                     </a>
