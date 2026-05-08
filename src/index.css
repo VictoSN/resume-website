@@ -22,10 +22,16 @@ html {
   font-weight: 500;
 }
 
+.large-section-label {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
 /* Hover underline animation */
 .nav-link {
   position: relative;
-  display: inline-block;
+  display: flex;
+  gap: 5px
 }
 .nav-link::after {
   content: '';

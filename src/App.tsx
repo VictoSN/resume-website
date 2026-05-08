@@ -50,6 +50,8 @@ function App() {
         {/* Hero fills top ~55vh */}
         <div className="h-[55vh]">
           <Hero darkMode={darkMode} setDarkMode={setDarkMode} />
+          {/* Sticky bottom tab bar */}
+          <Navbar mobile />
         </div>
  
         {/* Content — padded above bottom tab bar */}
@@ -65,8 +67,6 @@ function App() {
           <section id="projects-m"><Project darkMode={darkMode} /></section>
         </div>
  
-        {/* Sticky bottom tab bar */}
-        <Navbar mobile />
       </div>
 
     </div>

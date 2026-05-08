@@ -36,7 +36,7 @@ function Hero({ darkMode, setDarkMode, mobile = false }: HeroProps) {
                 <div className={`${mobile ? "absolute" : "fixed"} top-5 right-5 flex gap-3`}>
                     <button 
                         onClick={copyLink} 
-                        className="relative p-2 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-colors"
+                        className="relative p-2 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-colors cursor-pointer"
                     >
                         <img src={darkMode ? copyLight : copyDark} className="w-4 h-4" alt="Copy link" />
                         {copied && (
@@ -47,7 +47,7 @@ function Hero({ darkMode, setDarkMode, mobile = false }: HeroProps) {
                     </button>
                     <button
                         onClick={() => setDarkMode(!darkMode)}
-                        className="relative p-2 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-colors"
+                        className="relative p-2 rounded-full bg-white/10 dark:bg-black/20 backdrop-blur-sm hover:bg-black/40 transition-colors cursor-pointer"
                     >
                         <img src={darkMode ? moon : sun} className="w-4 h-4" alt="Toggle theme" />
                     </button>
@@ -56,13 +56,13 @@ function Hero({ darkMode, setDarkMode, mobile = false }: HeroProps) {
 
             {/* Name & Title */}
             <div className="absolute bottom-0 left-0 right-0 px-8 pb-8 pt-16">
-                <p className="section-label text-white [text-shadow:1px_1px_0_black] dark:text-white/100 mb-2">
+                <p className="section-label large-section-label text-white [text-shadow:1px_1px_0_black] dark:text-white/100 mb-2">
                     Portfolio
                 </p>
                 <h1 className="font-display text-4xl font-bold leading-tight text-white [text-shadow:1px_1px_0_black] dark:text-white mb-1">
                     Victorio Suwita Nanda
                 </h1>
-                <p className="text-base text-white [text-shadow:1px_1px_0_black] dark:text-white/50 font-light tracking-wide">
+                <p className="text-base text-white [text-shadow:1px_1px_0_black] dark:text-white/50 font-normal tracking-wide">
                     CS Undergraduate · Indonesia
                 </p>
             </div>

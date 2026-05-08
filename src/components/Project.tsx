@@ -1,7 +1,8 @@
 import githubFull from "../assets/svg/githubFull.svg"
 import noteAppDark from "../assets/pictures/noteAppDark.png"
 import noteAppLight from "../assets/pictures/noteAppLight.png"
-import todoApp from "../assets/pictures/todoApp.png"
+import todoAppLight from "../assets/pictures/todoAppLight.png"
+import todoAppDark from "../assets/pictures/todoAppDark.png"
 
 const getProjects = (darkMode: boolean) => [
     {
@@ -26,10 +27,11 @@ const getProjects = (darkMode: boolean) => [
         bullet: [
             "Add, edit, complete, and delete tasks",
             "Tasks synced directly with MongoDB (single source of truth)",
-            "Separate views for active and completed tasks"
+            "Separate views for active and completed tasks",
+            "Added Light/Dark mode for user comfort"
         ],
         link: "https://github.com/VictoSN/todo-app",
-        picture: todoApp
+        picture: darkMode ? todoAppDark : todoAppLight
     },
 ]
 

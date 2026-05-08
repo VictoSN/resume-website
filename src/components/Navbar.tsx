@@ -1,3 +1,8 @@
+import githubFull from "../assets/svg/githubFull.svg";
+import email from "../assets/svg/email.svg";
+import phone from "../assets/svg/phone.svg";
+import linkedin from "../assets/svg/linkedin.svg";
+
 const links = [
     { id: "about", label: "About" },
     { id: "education", label: "Education" },
@@ -19,19 +24,39 @@ function Navbar({ mobile = false }: NavbarProps) {
     // ── Mobile: sticky bottom tab bar ──
     if (mobile) {
         return (
-            <nav className="overflow-x-scroll fixed bottom-0 left-0 right-0 z-50 bg-[#F5F2ED]/90 dark:bg-[#0E0E0E]/90 backdrop-blur-md border-t border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)]">
-                <div className="flex justify-around items-center h-16 px-2">
-                    {links.map(({ id, label }) => (
-                        <button
-                            key={id}
-                            onClick={() => scroll(id)}
-                            className="flex flex-col items-center px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-                        >
-                            <span className="section-label text-[9px] tracking-widest">{label}</span>
-                        </button>
-                    ))}
+            <div>
+                <nav className="overflow-x-scroll fixed bottom-0 left-0 right-0 z-50 bg-[#F5F2ED]/90 dark:bg-[#0E0E0E]/90 backdrop-blur-md border-t border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)]">
+                    <div className="flex justify-around items-center h-16 px-2">
+                        {links.map(({ id, label }) => (
+                            <button
+                                key={id}
+                                onClick={() => scroll(id)}
+                                className="flex flex-col items-center px-0 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                            >
+                                <span className="large-section-label section-label !text-[11px] tracking-widest">{label}</span>
+                            </button>
+                        ))}
+                    </div>
+                </nav>
+                <div className="-mt-5 px-8 flex flex-wrap gap-x-4 gap-y-1">
+                    <a href="mailto:victorio.nanda.cs@gmail.com" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                        <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={email}/>
+                        Email
+                    </a>
+                    <a href="https://github.com/VictoSN" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                        <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={githubFull}/>
+                        GitHub
+                    </a>
+                    <a href="https://linkedin.com/in/victorio-nanda" target="_blank" rel="noreferrer" className="gap-1 text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                        <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={linkedin}/>
+                        LinkedIn
+                    </a>
+                    <a href="tel:+60-17-553-6908" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                        <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={phone}/>
+                        Phone
+                    </a>
                 </div>
-            </nav>
+            </div>
         )
     }
 
@@ -42,7 +67,7 @@ function Navbar({ mobile = false }: NavbarProps) {
                     <button
                         key={id}
                         onClick={() => scroll(id)}
-                        className="nav-link section-label text-[#1a1a1a] dark:text-[#E8E4DC] hover:opacity-100 transition-opacity"
+                        className="nav-link section-label text-[#1a1a1a] dark:text-[#E8E4DC] hover:opacity-100 transition-opacity cursor-pointer"
                     >
                         {label}
                     </button>
@@ -52,15 +77,21 @@ function Navbar({ mobile = false }: NavbarProps) {
             {/* Contact line */}
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
                 <a href="mailto:victorio.nanda.cs@gmail.com" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
-                    victorio.nanda.cs@gmail.com
+                    <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={email}/>
+                    Email
                 </a>
                 <a href="https://github.com/VictoSN" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                    <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={githubFull}/>
                     GitHub
                 </a>
-                <a href="https://linkedin.com/in/victorio-nanda" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                <a href="https://linkedin.com/in/victorio-nanda" target="_blank" rel="noreferrer" className="gap-1 text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                    <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={linkedin}/>
                     LinkedIn
                 </a>
-                <span className="text-sm text-[#1a1a1a]/40 dark:text-white/30">+60 17 553 6908</span>
+                <a href="tel:+60-17-553-6908" target="_blank" rel="noreferrer" className="text-sm text-[#1a1a1a]/40 dark:text-white/30 hover:text-[#1a1a1a]/70 dark:hover:text-white/60 transition-colors nav-link">
+                    <img className="w-[15px] opacity-40 dark:opacity-100 dark:invert brightness-0" src={phone}/>
+                    Phone
+                </a>
             </div>
         </nav>
     )
