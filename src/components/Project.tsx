@@ -2,9 +2,8 @@ import githubFull from "../assets/svg/githubFull.svg"
 import noteAppDark from "../assets/pictures/noteAppDark.png"
 import noteAppLight from "../assets/pictures/noteAppLight.png"
 import todoApp from "../assets/pictures/todoApp.png"
-import { useEffect } from "react"
 
-const projects = [
+const getProjects = (darkMode: boolean) => [
     {
         title: "MERN Note Application",
         type: "Full-Stack",
@@ -17,7 +16,7 @@ const projects = [
             "Fully responsive UI for mobile and desktop"
         ],
         link: "https://github.com/VictoSN/note-app",
-        picture: noteAppDark
+        picture: darkMode ? noteAppDark : noteAppLight
     },
     {
         title: "Todo List Application",
@@ -35,9 +34,7 @@ const projects = [
 ]
 
 function Project({ darkMode }: { darkMode: boolean }) {
-    useEffect(() => {
-        projects[0].picture = !darkMode ? noteAppDark : noteAppLight
-    }, [darkMode])
+    const projects = getProjects(darkMode)
 
     return (
         <div>
@@ -57,14 +54,14 @@ function Project({ darkMode }: { darkMode: boolean }) {
                         <span className="text-sm text-[#1a1a1a]/55 dark:text-white/40 font-light leading-relaxed">
                             {p.description}
                         </span>
-                        <div>
+                        <ul className="space-y-2">
                             {p.bullet.map((b, i) => (
                                 <li key={i} className="flex gap-3 text-sm text-[#1a1a1a]/60 dark:text-white/40 font-light leading-relaxed">
                                     <span className="mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0 opacity-40" />
                                     {b}
                                 </li>
                             ))}
-                        </div>
+                        </ul>
                         <div className="flex flex-wrap gap-2 mt-2">
                             <a href={p.link}>
                                 <img src={githubFull} className="w-[20px] p-[1px] relative rounded-full bg-white backdrop-blur-sm hover:bg-white/40 transition-colors" />

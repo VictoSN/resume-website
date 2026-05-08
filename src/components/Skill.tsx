@@ -84,7 +84,7 @@ function Skill() {
                         <p className="font-display text-lg font-semibold text-[#1a1a1a] dark:text-[#E8E4DC] leading-tight">{label}</p>
                         <div className="flex flex-wrap gap-2">
                             {items.map((item) => (
-                                <div className="flex flex-col items-center space-y-2 ">
+                                <div key={item.name} className="flex flex-col items-center space-y-2 ">
                                     <img src={item.icon} className="w-[25px] dark:invert brightness-0"/>
                                     <span
                                         key={item.name}
