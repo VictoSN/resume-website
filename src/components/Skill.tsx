@@ -12,12 +12,16 @@ import labview from "../assets/svg/labview.svg";
 import linux from "../assets/svg/linux.svg";
 import mongodb from "../assets/svg/mongodb.svg";
 import node from "../assets/svg/node.svg";
+import pyqt from "../assets/svg/pyqt.svg"
 import python from "../assets/svg/python.svg";
 import react from "../assets/svg/react.svg";
 import sql from "../assets/svg/sql.svg";
+import ssms from "../assets/svg/ssms.svg";
+import sqlite from "../assets/svg/sqlite.svg"
 import tailwind from "../assets/svg/tailwind.svg";
 import typescript from "../assets/svg/typescript.svg";
 import virtualbox from "../assets/svg/virtualbox.svg";
+import wsl from "../assets/svg/wsl.svg";
 import windows from "../assets/svg/windows.svg";
 import wordpress from "../assets/svg/wordpress.svg";
 
@@ -31,6 +35,7 @@ const categories = [
             { name: "TypeScript", icon: typescript },
             { name: "React.js", icon: react },
             { name: "Tailwind CSS", icon: tailwind },
+            { name: "PyQt", icon: pyqt },
         ],
     },
     {
@@ -48,7 +53,8 @@ const categories = [
             { name: "MongoDB", icon: mongodb },
             { name: "MongoDB Atlas", icon: mongodb },
             { name: "SQL", icon: sql },
-            { name: "Microsoft SSMS", icon: sql },
+            { name: "Microsoft SSMS", icon: ssms },
+            { name: "SQLite", icon: sqlite },
         ],
     },
     {
@@ -61,7 +67,7 @@ const categories = [
             { name: "Cisco Packet Tracer", icon: cisco },
             { name: "NI LabVIEW", icon: labview },
             { name: "VirtualBox", icon: virtualbox },
-            { name: "WSL", icon: linux },
+            { name: "WSL", icon: wsl },
         ],
     },
     {

@@ -7,8 +7,8 @@ function About() {
             </p>
             <p className="mt-4 text-base leading-relaxed text-[#1a1a1a]/60 dark:text-white/40 font-light">
                 Passionate about programming, designing, and understanding how systems work from the ground up.
-                I enjoy Web Development, exploring new technologies, and solving challenging problems —
-                whether it's writing efficient code or digging into a new language.
+                I enjoy Web Development and exploring new technologies. 
+                Whether it's writing code or digging into a new language, I'm gonna try my best!.
             </p>
 
             {/* Stats row */}
