@@ -1,13 +1,37 @@
-# resume-website
+# portfolio
 
-## Personal Resume/Portfolio website made using HTML-CSS-JS
+A personal portfolio built using React, TypeScript, Vite, and Tailwind CSS. Made to showcase my education, skills, projects and contacts.
 
-This project showcase my own personal resume/portfolio website to display my education, personal projects and contancts. this project contains the following functionalities:
+## Tech Stack
 
-1. Embedded the other HTML-CSS-JS projects.
-2. My education and certifications.
-3. My contacts.
+1. React (UI components)
+2. TypeScript (type safety and scalability)
+3. Vite (fast build tool and dev server)
+4. Tailwind CSS (utility-first styling)
 
-## Possible Future Upgrades
+## Features
 
-1. Slideshow image/video for project.
+- Responsive design (mobile / tablet / desktop)
+- Modular Component-based architecture
+- Typed props and data structures using TypeScript
+- Fast development with Vite HMR
+- Clean UI styled with Tailwind CSS
+
+## How it works
+
+- Content is structured into reusable React components
+- Data (projects, skills, etc.) is strongly typed using TypeScript
+- UI updates dynamically through React state where needed
+- Tailwind CSS handles all styling without separate CSS files
+- Vite handles bundling and fast local development
+
+## How to run
+1. Download the project
+2. Run the command below in the terminal
+
+```bash
+npm run dev
+```
+
+## License
+This project is licensed under the [MIT License](LICENSE)
