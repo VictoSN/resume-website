@@ -30,6 +30,7 @@ A personal portfolio built using React, TypeScript, Vite, and Tailwind CSS. Made
 2. Run the command below in the terminal
 
 ```bash
+npm install
 npm run dev
 ```
 

@@ -1,25 +1,37 @@
 import githubFull from "../assets/svg/githubFull.svg"
-import snipOCRDark from "../assets/pictures/Snip-OCRDark.png"
-import snipOCRLight from "../assets/pictures/Snip-OCRLight.png"
+import lectureCaptureDark from "../assets/pictures/LectureCaptureDark.png"
+import lectureCaptureLight from "../assets/pictures/LectureCaptureLight.png"
+import spotifyDark from "../assets/pictures/spotifyDark.png"
 import noteAppDark from "../assets/pictures/noteAppDark.png"
 import noteAppLight from "../assets/pictures/noteAppLight.png"
-import todoAppLight from "../assets/pictures/todoAppLight.png"
-import todoAppDark from "../assets/pictures/todoAppDark.png"
 
 const getProjects = (darkMode: boolean) => [
     {
-        title: "Python OCR Snipping Tool",
+        title: "LectureCapture",
         type: "Desktop",
-        stack: ["PyQt6", "Python-MSS", "PyTesseract", "Pillow", "SQLite"],
-        description: "A PyQt6 desktop app that captures full-screen or region screenshots with snipping tool-like functionality and extracts text using OCR with SQLite storage.",
+        stack: ["PyQt6", "PyTesseract", "faster-whisper", "Google Gemini", "SQLite"],
+        description: "A PyQt6 desktop app that turns lectures into structured notes — captures full-screen or region screenshots with snipping tool-like functionality, then runs OCR and Speech-to-Text fully locally on device.",
         bullet: [
-            "Built a PyQt6 desktop app for full-screen and region-based screenshot capture",
-            "Implemented snipping tool-style drag-to-select overlay",
-            "Integrated OCR text extraction using PyTesseract with image preprocessing",
-            "Stored captured snippets and extracted text persistently using SQLite"
+            "Built a Python app using PyQt6 that turns lectures into structured notes with OCR + Speech-to-Text",
+            "Tesseract OCR and faster-whisper Speech-to-Text run fully locally on device",
+            "Optional Google Gemini API for OCR, Speech-to-Text, summaries, quizzes, and translate/define functionalities",
+            "Stored data locally in SQLite, packaged into an installer with PyInstaller + Inno Setup"
         ],
-        link: "https://github.com/VictoSN/snip-ocr",
-        picture: darkMode ? snipOCRDark : snipOCRLight
+        link: "https://github.com/VictoSN/LectureCapture",
+        picture: darkMode ? lectureCaptureDark : lectureCaptureLight
+    },
+    {
+        title: "not-spotify",
+        type: "Full-Stack",
+        stack: ["React", "TypeScript", "ASP.NET Core", "AWS", "Stripe", "SignalR"],
+        description: "A collaborative music streaming web app built with a React + TypeScript frontend and ASP.NET Core API, deployed on AWS with S3 media storage, CloudFront, ECS + ALB, RDS, and Lambda.",
+        bullet: [
+            "Collaborated with 2 others to build a music streaming web app with a React + TypeScript frontend and ASP.NET Core API",
+            "Deployed on AWS: S3 media storage, CloudFront, ECS + ALB, RDS, and Lambda",
+            "Implemented homepage algorithms, Stripe billing, and SignalR real-time chat and presence"
+        ],
+        link: "https://github.com/VictoSN/not-spotify",
+        picture: darkMode ? spotifyDark : spotifyDark
     },
     {
         title: "MERN Note Application",
@@ -34,20 +46,6 @@ const getProjects = (darkMode: boolean) => [
         ],
         link: "https://github.com/VictoSN/note-app",
         picture: darkMode ? noteAppDark : noteAppLight
-    },
-    {
-        title: "Todo List Application",
-        type: "Full-Stack",
-        stack: ["MongoDB", "Express.js", "Node.js"],
-        description: "A simple full-stack task management app using MongoDB, Express, and Node.js with real-time updates and REST API integration.",
-        bullet: [
-            "Add, edit, complete, and delete tasks",
-            "Tasks synced directly with MongoDB (single source of truth)",
-            "Separate views for active and completed tasks",
-            "Added Light/Dark mode for user comfort"
-        ],
-        link: "https://github.com/VictoSN/todo-app",
-        picture: darkMode ? todoAppDark : todoAppLight
     },
 ]
 
