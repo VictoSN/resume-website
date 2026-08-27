@@ -3,13 +3,13 @@ const education = [
         school: "Asia Pacific University",
         degree: "BSc (Hons) Computer Science",
         detail: "CGPA 3.76 · Vice Chancellor's List 2023–24 & 2024–25",
-        period: "2023 – Present",
+        period: "2023 – 2026",
     },
     {
         school: "De Montfort University",
         degree: "BSc (Hons) Computer Science",
         detail: "APU-DMU Dual Degree Programme",
-        period: "2023 – Present",
+        period: "2023 – 2026",
     },
     {
         school: "Red Hat",
