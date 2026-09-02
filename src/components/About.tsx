@@ -14,7 +14,7 @@ function About() {
             {/* Stats row */}
             <div className="mt-8 grid grid-cols-3 gap-4">
                 {[
-                    { value: "3.76", label: "CGPA" },
+                    { value: "3.74", label: "CGPA" },
                     { value: "C1", label: "IELTS Band 7.5" },
                     { value: "2×", label: "VC's List" },
                 ].map(({ value, label }) => (

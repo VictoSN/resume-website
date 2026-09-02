@@ -2,7 +2,7 @@ const education = [
     {
         school: "Asia Pacific University",
         degree: "BSc (Hons) Computer Science",
-        detail: "CGPA 3.76 · Vice Chancellor's List 2023–24 & 2024–25",
+        detail: "CGPA 3.74 · Vice Chancellor's List 2023–24 & 2024–25",
         period: "2023 – 2026",
     },
     {
